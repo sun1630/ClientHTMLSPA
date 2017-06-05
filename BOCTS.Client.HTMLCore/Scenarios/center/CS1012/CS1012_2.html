@@ -1,0 +1,63 @@
+﻿<div>
+    <table>
+        <tr>
+            <td><label data-bind="text:cx.rm.label.editAccount"></label></td>
+            <td><input data-bind="value:account" type="text" /></td>
+        </tr>
+        <tr>
+            <td><label data-bind="text:cx.rm.label.name"></label></td>
+            <td>
+                <input data-bind="value:name" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td><label data-bind="text:cx.rm.label.birthday"></label></td>
+            <td><input data-bind="value:birthday" type="text" /></td>
+        </tr>
+        <tr>
+        <td><label >addr</label></td>
+        <td ><!--data-bind="with:addr"-->
+            <span data-bind="text:addr().a" type="text" /></span>
+        </td>
+        </tr>
+        <tr>
+            <td>
+                <button data-bind="click:cx.wm.jumpto.bind($data,-1,instanceId),text:cx.rm.button.pre" style="color:#666"></button>
+            </td>
+            <td>
+                <button data-bind="click:cx.wm.continueFlow,text:cx.rm.button.buttonNext" style="color:#666"></button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--<div class="tip">
+    <div class="tiptitle" data-bind="text:cx.rm.cs1011_2Lable"></div>
+    <div class="tipcontent">
+        <div style="height:30px;width:100%"></div>
+        <table>
+            <tr>
+                <td><label data-bind="text:cx.rm.editAccount"></label></td>
+                <td><input data-bind="value:account" type="text" /></td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.name"></label></td>
+                <td>
+                    <input data-bind="value:name" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.birthday"></label></td>
+                <td><input data-bind="value:birthday" type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <button data-bind="click:cx.am.jumpto.bind($data,-1,instanceId),text:cx.rm.pre" style="color:#666"></button>
+                </td>
+                <td>
+                    <button data-bind="click:cx.am.continueFlowForDialog" style="color:#666">下一步</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>-->

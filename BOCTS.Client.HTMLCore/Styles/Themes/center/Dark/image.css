@@ -1,0 +1,71 @@
+﻿.button-image-text-submit { background-repeat: no-repeat; background-image: url('img/x.jpg'); }
+.button-image-text-next { background-repeat: no-repeat; background-image: url('img/x.png'); }
+.button-image-text-prev { background-repeat: no-repeat; background-image: url('img/img2.png'); }
+.button-image-text-close { background-repeat: no-repeat; background-image: url('img/img2.png'); }
+.button-image-text-exit { background-repeat: no-repeat; background-image: url('img/img2.png'); }
+body { background: url(img/body.jpg) top no-repeat; background-size: 100%; }
+.mif-1 { background-image: url('img/nav_2.png'); background-repeat: no-repeat; }
+.mif-2 { background-image: url('img/nav_1.png'); background-repeat: no-repeat; }
+.mif-3 { background-image: url('img/nav_5.png'); background-repeat: no-repeat; }
+.mif-4 { background-image: url('img/nav_4.png'); background-repeat: no-repeat; }
+.mif-5 { background-image: url('img/nav_3.png'); background-repeat: no-repeat; }
+.mif-6 { background-image: url('img/nav_9.png'); background-repeat: no-repeat; }
+.mif-7 { background-image: url('img/nav_8.png'); background-repeat: no-repeat; }
+.mif-8 { background-image: url('img/nav_6.png'); background-repeat: no-repeat; }
+.mif-9 { background-image: url('img/nav_17.png'); background-repeat: no-repeat; }
+.mif-10 { background-image: url('img/nav_9.png'); background-repeat: no-repeat; }
+.mif-11 { background-image: url('img/nav_15.png'); background-repeat: no-repeat; }
+.mif-12 { background-image: url('img/nav_1.png'); background-repeat: no-repeat; }
+.mif-13 { background-image: url('img/nav_10.png'); background-repeat: no-repeat; }
+.mif-14 { background-image: url('img/nav_14.png'); background-repeat: no-repeat; }
+.mif-15 { background-image: url('img/nav_13.png'); background-repeat: no-repeat; }
+.mif-16 { background-image: url('img/nav_11.png'); background-repeat: no-repeat; }
+.mif-17 { background-image: url('img/nav_16.png'); background-repeat: no-repeat; }
+.logo { background: url(img/logo.png) center no-repeat }
+.button-red, .button-primary-color, .btn-primary, .button-middle-large { color: #FFF !important; background: url('img/btn2.png') center no-repeat; background-size: 120%; border: 1px solid #B20000 }
+.button-gray, .button-secondary-color { color: #666 !important; background: url('img/btn1.png') center no-repeat; background-size: 120%; /*border:1px solid #AAA*/ }
+.button-red:active, .button-primary-color:active, .btn-primary:active, .button-middle-large:active { background: url('img/btn2_active.png') center no-repeat; background-size: 120% }
+.button-red:disabled, .button-primary-color:disabled { color: #b2b2b2 !important; background: url('img/btn1.png') center no-repeat; background-size: 120%; border: none; opacity:1; }
+.button-gray:active, .button-secondary-color:active { background: url('img/btn1_active.png') center no-repeat; background-size: 120%; }
+/*.button-long-gray {border:1px solid #ccc; background:url('img/btn1.png') center no-repeat ; background-size:120% }
+.button-long-gray:active { background:url('img/btn1_active.png') center no-repeat ; background-size:120% }
+.button-long-red {border:1px solid #B80029; color:#FFF; background:url('img/btn2.png') center no-repeat ; background-size:120% }
+.button-long-red:active { background:url('img/btn2_active.png') center no-repeat ; background-size:120% }*/
+.button-bgsize { background-size: 120% }
+.button-bgsize:active { background-size: 120% }
+.pure-check-box input[type="checkbox"]:checked + label:after, .pure-radio-btn input[type="radio"]:checked + label:after { background: url('img/radio_btn_checked.png') center no-repeat; }
+.pure-selcet { background: url('img/select_ico.png') right no-repeat #FFF; }
+.pure-radio-group input[type="radio"]:checked + label:after, .radio-rect-option input[type="radio"]:checked + label:after { background: url("img/radio-checked-ico.png") top right no-repeat; }
+.flowbar { width: 100%; height: 100px; background: url('img/flowbg.png') }
+.flowicobar { background: url('img/flowline1.png') left no-repeat }
+.flow ul li:last-child div.flowicobar { background: url('img/flowline1.png') right no-repeat; background-position: -315px; }
+.flow ul li.running div.flowline { width: 50%; left: 0; background: url('img/flowline2.png') center repeat-x; }
+.flow ul li.complete div.flowline { right: 0; background: url('img/flowline2.png') center repeat-x; }
+.notool { background-image: url('img/logo_ico.png'); }
+.button-choose-dote { background: url("img/radio-checked-ico.png") top right no-repeat #e4e4e4; }
+.sort-asc-btn { width: 120px; height: 50px; line-height: 50px; text-align: center; padding-right: 30px; background: url('img/arrow-up.png') right no-repeat #e2e2e2; border: 1px solid #ccc }
+.sort-desc-btn { width: 120px; height: 50px; line-height: 50px; text-align: center; padding-right: 30px; background: url('img/arrow-down.png') right no-repeat #e2e2e2; border: 1px solid #ccc }
+.top-tip { position: absolute; top: -20px; left: 0px; width: 60px; height: 50px; line-height: 50px; font-size: 14px; text-align: center; color: #FFF; font-weight: normal; background: url('img/top-ico.png') center no-repeat; background-size: 100% }
+.open-list-btn { width: 40px; height: 40px; background: url('img/open-list.png') center no-repeat; }
+.open-list-btn:active { background: url('img/open-list-active.png') center no-repeat; }
+.close-list-btn { width: 40px; height: 40px; background: url('img/close-list.png') center no-repeat; }
+.close-list-btn:active { background: url('img/close-list-active.png') center no-repeat; }
+.up_page { background: url('img/prev.png') no-repeat; border: 0;box-shadow:none }
+.down_page { background: url('img/next.png') no-repeat; border: 0;box-shadow:none }
+.up_page:active { background: url('img/prev_active.png') no-repeat; }
+.down_page:active { background: url('img/next_active.png') no-repeat; }
+.time-bar div {background-image: url('img/Calendar-Date.png'); background-position: center; background-repeat: no-repeat; pointer-events: none; }
+.showspan label { background: url('img/radio_btn_checked.png') center no-repeat; background-size: 100%;  }
+.countbg { position: absolute; top: 5px; left: 5px; width: 120px; height: 120px; background:url(img/countdown.png) center no-repeat ; animation: xz 10s; animation-iteration-count: 100; animation-timing-function: linear; z-index: 10 }
+.check-box-squ{ width:35px; height:35px; border:1px solid #bbb;  border-radius:4px; background:#F4F4F4}
+.check-box-squ-select{width:35px; height:35px; border:1px solid #bbb; border-radius:4px; background:url(/Styles/Appearance/default/img/right.png) center no-repeat #F4f4f4;}
+.disorder{ background:url('img/arrow.png') right no-repeat;}
+.asce-ico{background:url('img/arrow-up.png') right no-repeat;}
+.desc-ico{background:url('img/arrow-down.png') right no-repeat;}
+.select-progress-bar-on { height:2em; width: 2em; border: 0px solid #b9b1b1; border-radius: 1em;background:rgba(189, 29, 65, 1);color:white;line-height:35px;margin-left:6%;margin-top:12px;text-align:center;float:left;}
+.select-progress-bar { height:2em; width: 2em; border: 1px solid white; border-radius: 1em;background:#b9b1b1;color:white;line-height:35px;margin-left:6%;margin-top:12px;text-align:center;float:left;}
+
+
+
+
+

@@ -1,0 +1,95 @@
+﻿<avalonDock:DockingManager x:Class="BOCTS.Client.Controls.DockManager.DockContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:prism="http://www.codeplex.com/prism"
+              xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock">
+    <avalonDock:DockingManager.Theme>
+        <!--<avalonDock:AeroTheme/>-->
+        <avalonDock:VS2010Theme/>
+        <!--<avalonDock:ExpressionDarkTheme/>-->
+        <!--<avalonDock:ExpressionLightTheme/>-->
+        <!--<avalonDock:GenericTheme/>-->
+        <!--<avalonDock:MetroTheme/>-->
+    </avalonDock:DockingManager.Theme>
+    <avalonDock:LayoutRoot >
+
+
+        <avalonDock:LayoutRoot.RootPanel  >
+
+            <avalonDock:LayoutPanel Orientation="Vertical">
+
+                <avalonDock:LayoutAnchorablePane DockMinHeight="80" DockHeight="80">
+                    <avalonDock:LayoutAnchorable Title="Widget"     ContentId="WidgetRegion"    CanAutoHide="True" CanClose="False" CanFloat="False" CanHide="False">
+                        <ContentControl x:Name="WidgetRegion" prism:RegionManager.RegionName="WidgetRegion"></ContentControl>
+                    </avalonDock:LayoutAnchorable>
+                </avalonDock:LayoutAnchorablePane>
+
+
+                <avalonDock:LayoutPanel Orientation="Horizontal">
+                    <!--<avalonDock:LayoutAnchorablePaneGroup DockWidth="150"  >
+                      
+
+
+                    </avalonDock:LayoutAnchorablePaneGroup>-->
+                    <avalonDock:LayoutAnchorablePane DockWidth="150">
+                        <avalonDock:LayoutAnchorable Title="客户展示区" ContentId="CustomerRegion" CanAutoHide="True" CanClose="False" CanFloat="False" CanHide="False">
+                            <ContentControl x:Name="CustomerRegion"  prism:RegionManager.RegionName="CustomerRegion"></ContentControl>
+                        </avalonDock:LayoutAnchorable>
+                    </avalonDock:LayoutAnchorablePane>
+                    <avalonDock:LayoutDocumentPane>
+                        <!--<avalonDock:LayoutDocument Title="WebBrowser" ContentId="TransactionRegion"  CanClose="True" CanFloat="False" >
+                            <ContentControl x:Name="TransactionRegion"  prism:RegionManager.RegionName="TransactionRegion"></ContentControl>
+
+                        </avalonDock:LayoutDocument>-->
+                    </avalonDock:LayoutDocumentPane>
+                  
+                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="200">
+                        <avalonDock:LayoutAnchorablePane>
+                            <avalonDock:LayoutAnchorable Title="队列" ContentId="QueueRegion" CanAutoHide="True" CanClose="False" CanFloat="False" CanHide="False">
+
+                                <ContentControl x:Name="QueueRegion"  prism:RegionManager.RegionName="QueueRegion"></ContentControl>
+
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorablePane>
+                        
+                    </avalonDock:LayoutAnchorablePaneGroup>
+
+                </avalonDock:LayoutPanel>
+
+                <!--<avalonDock:LayoutPanel>
+                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="200">
+                        <avalonDock:LayoutAnchorablePane>
+                            <avalonDock:LayoutAnchorable Title="信息"  AutoHideMinHeight="50" AutoHideHeight="50" ContentId="StatusInformationRegion" CanAutoHide="True" CanClose="False" CanFloat="False" CanHide="False">
+                                <ContentControl x:Name="StatusInformationRegion"  prism:RegionManager.RegionName="StatusInformationRegion"></ContentControl>
+                            </avalonDock:LayoutAnchorable>
+                            <avalonDock:LayoutAnchorable Title="附件" AutoHideMinHeight="50" AutoHideHeight="50" ContentId="AttachmentRegion" CanAutoHide="True" CanClose="False" CanFloat="False" CanHide="False">
+                                <ContentControl x:Name="AttachmentRegion"  prism:RegionManager.RegionName="AttachmentRegion"></ContentControl>
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorablePane>
+
+                    </avalonDock:LayoutAnchorablePaneGroup>
+                </avalonDock:LayoutPanel>-->
+            </avalonDock:LayoutPanel>
+        </avalonDock:LayoutRoot.RootPanel>
+
+
+
+
+        <avalonDock:LayoutRoot.BottomSide  >
+            <avalonDock:LayoutAnchorSide>
+                
+                <avalonDock:LayoutAnchorGroup>
+                    
+                    <avalonDock:LayoutAnchorable Title="信息"  AutoHideMinHeight="50" AutoHideHeight="50" ContentId="StatusInformationRegion" CanAutoHide="True" CanClose="False" CanFloat="False" CanHide="False">
+                        <ContentControl x:Name="StatusInformationRegion"  prism:RegionManager.RegionName="StatusInformationRegion"></ContentControl>
+                    </avalonDock:LayoutAnchorable>
+                    <avalonDock:LayoutAnchorable Title="附件" AutoHideMinHeight="50" AutoHideHeight="50" ContentId="AttachmentRegion" CanAutoHide="True" CanClose="False" CanFloat="False" CanHide="False">
+                        <ContentControl x:Name="AttachmentRegion"  prism:RegionManager.RegionName="AttachmentRegion"></ContentControl>
+                    </avalonDock:LayoutAnchorable>
+
+                </avalonDock:LayoutAnchorGroup>
+            </avalonDock:LayoutAnchorSide>
+        </avalonDock:LayoutRoot.BottomSide>
+    </avalonDock:LayoutRoot>
+
+</avalonDock:DockingManager>

@@ -1,0 +1,42 @@
+﻿<div>
+    <table>
+        <thead>
+            <tr>
+                <th><h3><label data-bind="text:cx.rm.label.cs1011_3Lable"></label></h3></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label data-bind="text:cx.rm.label.account"></label></td>
+                <td>
+                    <span data-bind="text:cx.dm.account"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.label.password"></label></td>
+                <td><span data-bind="text:cx.dm.password"></span></td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.label.name"></label></td>
+                <td>
+                    <span data-bind="text:cx.dm.name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.label.birthday"></label></td>
+                <td><span data-bind="text:cx.dm.birthday"></span></td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.label.balance"></label></td>
+                <td><span data-bind="text:cx.dm.Banlance"></span></td>
+
+            </tr>
+            <tr>
+                <td><button data-bind="click:messge">显示DM</button>
+                <button data-bind="text:cx.rm.button.buttonNext,click:cx.wm.continueFlow"></button></td>
+                <td><button data-bind="click:cx.wm.jumpto.bind($data,'showName',instanceId),text:cx.rm.button.prefrist" style="color:#666"></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+﻿/*
+    首页菜单|磁贴样式
+*/
+.tile-group.double.ad { margin-right:40px;  width:380px; float:right; overflow:hidden}
+.tile { margin:10px; width:220px; height:160px; float:right}
+.tile-group.one { width:240px}
+.tile-group.two, .tile-group.double { width:480px}
+.tile-group.three { width:720px}
+.tile-large {margin:10px; width:460px; height:160px; float:right}
+.tile-container { float:right}
+.tile-ad {margin:10px; width:320px; height:160px; float:left; display:block}
+.menu-bar { width:1600px;  height:100%; float:right; overflow:hidden;}
+.tile-bar { width:2200px; height:100%; overflow:hidden}
+.tile-cont { overflow:hidden}
+.tile-group{ margin-left:60px; float:right}
+.tile-label { font-size:22px }
+.tile div.tile-content span.icon{ margin-top:20px; top:auto; margin-left:60px; left:auto;  width:100px; height:100px }
+.tile-large div.tile-content span.icon {  margin-top:20px; top:auto;  width:100px; height:100px}
+.tile-wide{ margin:10px; width:360px; height:160px}
+.tile,.tile-large,a.tile-small {box-shadow:0 0 5px #999  }
+a.tile:active,a.tile-large:active,a.tile-small:active{ box-shadow:0 0 5px #333 inset}
+.tile-large:hover,.tile:hover,.ad a.live-slide:hover,a.tile-small:hover {  outline:none}
+.iconic{pointer-events:none}
+.tile-content.iconic .icon{ width:100px; height:100px; top:30%; left:44%}
+.tile-small .tile-content.iconic .icon{width:80px; height:80px; top:18%; left:35%}
+.tile-content{ text-align:center }
+.tile-wide:hover{ outline:0;}

@@ -1,0 +1,184 @@
+﻿<style>
+    input[type=text]::-ms-clear {
+        display: block;
+    }
+</style>
+<span data-bind="text:instanceid"></span>
+<div data-bind="validationOptions: {messageTemplate: 'myCustomTemplate'}">
+    <table style="margin-left:0">
+        <thead>
+            <tr>
+                <th><h3><label data-bind="text:cx.rm.cs1011_1Lable"></label></h3></th>
+                <th><!--<label data-bind="text:$root.dm.system.config.client.culture"></label>--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="animateTest">
+                <td>
+                    <label data-bind="text:cx.rm.label.account"></label>
+                </td>
+                <td>
+                    <input id="inAccount" data-bind="value:account,validationElement:account" type="text" class="abc" tabindex="1">
+                    <!--<br /><span data-bind="text:str1"></span>
+                    <br /><span data-bind="text:str2"></span>
+                    <br /><span data-bind="text:str3"></span>
+                    <br /><span data-bind="text:str4"></span>-->
+                    <!--<textarea style="white-space:nowrap;overflow:auto"></textarea>-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label data-bind="text:cx.rm.label.accountuse"></label>
+
+                </td>
+                <td>
+                    <input id="inAccount" data-bind="value:accountuse" type="text" accesskey="b" tabindex="3"><!--,maskInput:maskNA-->
+                    </p>
+                </td>
+                <!--<td>
+                    <input  data-bind="text:province1().name" type="text">
+                </td>-->
+            </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.label.password"></label></td>
+                <td>
+                    <input data-bind="value:password" type="password" tabindex="2"/>
+                    </p>
+                </td>
+            </tr>
+           <tr>
+                <td><label data-bind="text:cx.rm.label.maskType"></label></td>
+                <td>
+                    <select data-bind="options: maskTypeArray,optionsText:'name',value:maskFormatNumeric">
+                        <!--event:{change:method},value:maskFormatNumeric-->
+                    </select>
+                </td>
+             </tr>
+            <tr>
+                <td><label data-bind="text:cx.rm.label.mask"></label></td><!--rm.label.beginReadIDCard-->
+                <td>
+                    <input id="maskNumber" data-bind="value:number,maskInput:maskFormatNumeric" /><!--,click:openAmountMiniKeyboard-->
+                    </p>
+                    <span data-bind="text:upperNumber"></span>
+                    </p>
+                    <span data-bind="text:formatNumber"></span>
+                </td>
+            </tr>
+            <!--<tr>
+                <td><label data-bind="text:'座机'"></label></td>
+                <td>
+                    <input data-bind="value:TelePhone,maskInput:maskFormatTelePhone,valueUpdate: 'afterkeydown' " />
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:'邮件'"></label></td>
+                <td>
+                    <input data-bind="value:email,maskInput:maskFormatEmail,valueUpdate: 'afterkeydown'" />
+                    </p>
+                </td>
+            </tr>-->
+            <tr>
+                <td><label data-bind="text:'省'"></label></td>
+                <td>
+                    <input readonly="readonly" data-bind="value:province1Diaplay,click:$root.selectProvince.openStaticMenus.bind($data,'province','province')" />
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><label data-bind="text:'市'"></label></td>
+                <td>
+                    <input data-bind="value:cityDiaplay,click:$root.selectCity.openStaticMenus.bind($data,'city',province1Value)" />
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><button id="mybutton" data-controll='{"clickOnce":true}' data-bind="text:cx.rm.button.buttonNext,click:cx.wm.continueFlow.bind($data,null,null)"></button></td>
+                <td>
+                    <button data-bind="click:next">下一步后台调用</button>
+                    <button data-controll='{"timeout":10}' data-bind="click:method">获取验证码</button>
+                    <button data-bind="click:stattWf">新流</button>
+                    <button data-bind="click:method1">压栈</button>
+                    <!--<button data-bind="click:stattWf">start wf</button>-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <!--<button id="butA1" data-bind="text:rm.image.b01beginPrinting,click:butA"></button>-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="butA2" data-bind="text:'测试B',click:butA"></button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="butA3" data-bind="text:'测试A',click:processAnimate.bind($data,'#butA3')" class="button-small button-red"></button>
+                    &nbsp;&nbsp;
+                    <button id="butA4" data-bind="text:'测试B',click:butB" class="button-small button-red"></button>
+                </td>
+            </tr>
+            <tr>
+                <td>子流程</td>
+                <td><span data-controll='pageTimeout' data-bind="click:method"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="dialog" style="display:none;" data-bind="with:selectProvince,attr:{id:selectProvince.menuId}">
+    <div class="dialog_head">选择省</div>
+    <div class="dialog_body">
+        <div class="dialog_cont">
+            <ul class="selectbar" data-bind="foreach: menuItems">
+                <li>
+                    <div class="pure-radio-group">
+                        <span style="cursor: pointer;" data-bind="text:text, click: $parent.itemClick"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="dialog_bot" data-bind="visible:isVisibleButton">
+        <button class="button-small button-gray" data-bind="click:cancel">取&nbsp;消</button>
+        <button class="button-small button-red" data-bind="click:confirm">确&nbsp;定</button>
+    </div>
+</div>
+
+<div class="dialog" data-predefined-width="820px" style="display:none;" data-bind="with:selectCity,attr:{id:selectCity.menuId}">
+    <div class="dialog_head">选择市</div>
+    <div class="dialog_body">
+        <div class="dialog_cont">
+            <ul class="selectbar" data-bind="foreach: menuItems">
+                <li>
+                    <div class="pure-radio-group">
+                        <span style="cursor: pointer;" data-bind="text:text, click: $parent.itemClick"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="dialog_bot" data-bind="visible:isVisibleButton">
+        <button class="button-small button-gray" data-bind="click:cancel">取&nbsp;消</button>
+        <button class="button-small button-red" data-bind="click:confirm">确&nbsp;定</button>
+    </div>
+</div>
+
+
+<div class="stip-title" data-bind="text:cx.rm.CS002_dzBank"></div>
+
+<div class="productbar" style="height:250px;">
+    <div class="prodlist" style="height:250px;overflow-x:auto;overflow-y:hidden">
+        <ul class="prodinfo " data-bind="foreach:E_bankType" style="width:2100px">
+            <li class="prod_c4">
+                <div class="prodhead">
+                    <div class="prodtitle"><span data-bind="text:name"></span></div>
+                    <div class="pure-check-box">
+                        <input type="checkbox" data-bind="attr:{id:$index},value:value,checked:$root.checkedAry,click:$root.checkValue.bind($data,value)" />
+                        <label class="clas" data-bind="attr:{for:$index}"></label>
+                    </div>
+                </div>
+                <div class="prodcont notool"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/html" id="myCustomTemplate">
+    <span data-bind="visible: field.isModified() && !field.isValid(), text:field.error,attr: { title: field.error }">X</span>
+</script>
+<input id="Checkbox1" type="checkbox"  />
+<textarea id="TextArea1" rows="2" cols="20" ></textarea>

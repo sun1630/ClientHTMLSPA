@@ -1,0 +1,20 @@
+﻿<div class="dialog">
+    <div class="dialog_head" data-bind="text: rm.message.alertTitle"></div>
+    <div class="dialog_body">
+        <div class="dialog_cont">
+            <div class="modal-body" style="color:black;">
+                <div class="pure-g">
+                    <div class="pure-u-1">
+                        <h3 data-bind="text: rm.message.gohomeAndExitAsk"></h3><br />
+                        <textarea id="TextArea1" rows="2" cols="20"></textarea><br />
+                        <input id="Text1" type="text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dialog_bot">
+        <button class="button-small button-gray" data-bind="text: rm.button.buttonNo, click: cancel"></button>
+        <button class="button-small button-red" data-bind="text: rm.button.buttonYes, click: confirm"></button>
+    </div>
+</div>

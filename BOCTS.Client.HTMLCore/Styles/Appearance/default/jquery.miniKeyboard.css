@@ -1,0 +1,78 @@
+﻿.pcpd-wrapper {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear;
+    z-index: 9999999;
+}
+
+.pcpd-target {
+    cursor: pointer;
+    ime-mode:disabled;
+}
+
+.pcpd-grid {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    z-index: 5000;
+    -khtml-user-select: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: initial;
+}
+
+.pcpd-overlay {
+    z-index: 4999;
+}
+
+input.pcpd-display {
+    text-align: center;
+}
+
+
+.atpd-wrapper {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear;
+    z-index: 9999999;
+}
+
+.atpd-target {
+    cursor: pointer;
+    ime-mode:disabled;
+}
+
+.atpd-grid {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    z-index: 5000;
+    -khtml-user-select: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: initial;
+}
+
+.atpd-overlay {
+    z-index: 4999;
+}
+
+input.atpd-display {
+    text-align: center;
+}

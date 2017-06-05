@@ -1,0 +1,20 @@
+﻿<div class="stip-title" data-bind="text: rm.label.inputAddr"></div>
+
+<div class="pure-form pure-g" style="display:block">
+    <!--单位/学校-->
+    <div class="pure-u-1">
+        <div class="pure-g">
+            <div class="pure-u-5-24">
+                <label data-bind="text: rm.label.unit"></label>
+                <span class="needinput">*</span>
+            </div>
+            <input class="pure-u-1-2" data-bind="value: CurrentAttending, attr: { placeHolder: rm.message.CurrentAttendingHolder, event: { change: checkCurrentAttending }}, css: CssCurrentAttending" id="CurrentAttending" maxlength="20" />
+            <div class="pure-u-offset-5-24 pure-u-1-2 tips" ></div>
+        </div>
+    </div>
+</div>
+
+<div class="pure-u-1-1 form-oprebtn-area">
+    <button class="button-large button-secondary-color" data-bind="text: rm.button.buttonPrev"></button>
+    <button class="button-large button-primary-color" data-bind="text: rm.button.buttonNext"></button>
+</div>

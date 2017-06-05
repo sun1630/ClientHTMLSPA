@@ -1,0 +1,42 @@
+﻿<div>
+    <div style="height:80px;width:100%"></div>
+    <h3 data-bind="text:cx.rm.label.cs1011_4Title"></h3><br />
+    <button data-bind="text:cx.rm.button.pre,click:cx.wm.jumpto.bind($data,-1,instanceId)"></button>
+    <button data-bind="text:cx.rm.button.complete,click:cx.wm.continueFlow"></button>
+    <!-- 访问全局资源
+    <label data-bind="text:rm.label.account"></label>-->
+    <!-- 访问实例资源
+    <label data-bind="text:cx.rm.label.nextButton"></label> -->
+    <!-- 访问am方法
+    <button data-bind="click:am.goHome"></button>-->
+    <!-- 访问wm方法
+    <button data-bind="click:function(){cx.wm.continueFlow({'key','value'})}"></button>-->
+    <!-- 访问dm数据
+    <label data-bind="text:self.dm.account"></label>-->
+    <!--tableView-->
+    <div data-bind="with:tableView">
+        <table>
+            <thead>
+                <tr data-bind="foreach: Settings.Columns">
+                    <th>
+                        <!--ko if:Name()-->
+                        <div>
+                            <span data-bind="text:DisplayName,click:$parent.SetOrderby"></span>
+                            <span data-bind="text: Order() ? (Order() == 'asc' ? '↑':'↓') : ''"></span>
+                        </div>
+                        <!--/ko-->
+                    </th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:Result">
+                <tr>
+                    <td><a data-bind="text:Name"></a></td>
+                    <td><span data-bind="text:Age"></span></td>
+                    <td><span data-bind="text:Enabled ? '启用' : '禁用'"></span></td>
+                    <td><span data-bind="text:UpdateDate"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--/tableView-->
+</div>

@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{4F132843-C7A6-476C-A706-F6F12B632F49}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\client.js" />
+    <Content Include="Config\config.js" />
+    <Content Include="Config\data.js" />
+    <Content Include="Config\services.js" />
+    <Content Include="index.html" />
+    <Content Include="Option\center\zh-cn\city.js" />
+    <Content Include="Option\center\zh-cn\province.js" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Res\center\index.js" />
+    <Content Include="Res\center\zh-cn\button.js" />
+    <Content Include="Res\center\zh-cn\image.js" />
+    <Content Include="Res\center\zh-cn\label.js" />
+    <Content Include="Res\center\zh-cn\message.js" />
+    <Content Include="Res\center\zh-cn\table.js" />
+    <Content Include="Res\center\zh-cn\validation.js" />
+    <Content Include="Scenarios\center\CS1014\CS1014.js" />
+    <Content Include="Scenarios\center\CS1014\CS1012_1.html" />
+    <Content Include="Scenarios\center\CS1014\CS1012_1.js" />
+    <Content Include="Scenarios\center\CS1014\CS1012_1backup.html" />
+    <Content Include="Scenarios\center\CS1014\CS1012_1backup.js" />
+    <Content Include="Scenarios\center\CS1014\CS1012_2.html" />
+    <Content Include="Scenarios\center\CS1014\CS1012_2.js" />
+    <Content Include="Scenarios\center\CS1014\CS1012_3.html" />
+    <Content Include="Scenarios\center\CS1014\CS1012_3.js" />
+    <Content Include="Scenarios\center\CS1014\CS1012_4.html" />
+    <Content Include="Scenarios\center\CS1014\CS1012_4.js" />
+    <Content Include="Scenarios\center\CS1014\res\zh-cn.js" />
+    <Content Include="Scenarios\center\CS1013\CS1013.js" />
+    <Content Include="Scenarios\center\CS1013\CS1012_1.html" />
+    <Content Include="Scenarios\center\CS1013\CS1012_1.js" />
+    <Content Include="Scenarios\center\CS1013\CS1012_1backup.html" />
+    <Content Include="Scenarios\center\CS1013\CS1012_1backup.js" />
+    <Content Include="Scenarios\center\CS1013\CS1012_2.html" />
+    <Content Include="Scenarios\center\CS1013\CS1012_2.js" />
+    <Content Include="Scenarios\center\CS1013\CS1012_3.html" />
+    <Content Include="Scenarios\center\CS1013\CS1012_3.js" />
+    <Content Include="Scenarios\center\CS1013\CS1012_4.html" />
+    <Content Include="Scenarios\center\CS1013\CS1012_4.js" />
+    <Content Include="Scenarios\center\CS1013\res\zh-cn.js" />
+    <Content Include="Scenarios\center\CS1012\CS1012.js" />
+    <Content Include="Scenarios\center\CS1012\CS1012_1.html" />
+    <Content Include="Scenarios\center\CS1012\CS1012_1.js" />
+    <Content Include="Scenarios\center\CS1012\CS1012_1backup.html" />
+    <Content Include="Scenarios\center\CS1012\CS1012_1backup.js" />
+    <Content Include="Scenarios\center\CS1012\CS1012_2.html" />
+    <Content Include="Scenarios\center\CS1012\CS1012_2.js" />
+    <Content Include="Scenarios\center\CS1012\CS1012_3.html" />
+    <Content Include="Scenarios\center\CS1012\CS1012_3.js" />
+    <Content Include="Scenarios\center\CS1012\CS1012_4.html" />
+    <Content Include="Scenarios\center\CS1012\CS1012_4.js" />
+    <Content Include="Scenarios\center\CS1012\res\zh-cn.js" />
+    <Content Include="Scenarios\center\tableView\res\en-us.js" />
+    <Content Include="Scenarios\center\tableView\res\zh-cn.js" />
+    <Content Include="Scenarios\center\tableView\tableView.js" />
+    <Content Include="Scenarios\center\tableView\tableView_2.html" />
+    <Content Include="Scenarios\center\tableView\tableView_2.js" />
+    <Content Include="Scripts\activities\CallSubFlowActivity.js" />
+    <Content Include="Scripts\activities\ConnectServerActivity.js" />
+    <Content Include="Scripts\activities\DataMappingActivity.js" />
+    <None Include="Scripts\jquery-2.2.3-vsdoc.js" />
+    <Content Include="Scripts\activities\ShowScreenActivity.js" />
+    <Content Include="Scripts\almond-custom.js" />
+    <Content Include="Scripts\durandal\activator.js" />
+    <Content Include="Scripts\durandal\app.js" />
+    <Content Include="Scripts\durandal\binder.js" />
+    <Content Include="Scripts\durandal\composition.js" />
+    <Content Include="Scripts\durandal\events.js" />
+    <Content Include="Scripts\durandal\plugins\dialog.js" />
+    <Content Include="Scripts\durandal\plugins\history.js" />
+    <Content Include="Scripts\durandal\plugins\http.js" />
+    <Content Include="Scripts\durandal\plugins\observable.js" />
+    <Content Include="Scripts\durandal\plugins\router.js" />
+    <Content Include="Scripts\durandal\plugins\serializer.js" />
+    <Content Include="Scripts\durandal\plugins\widget.js" />
+    <Content Include="Scripts\durandal\system.js" />
+    <Content Include="Scripts\durandal\viewEngine.js" />
+    <Content Include="Scripts\durandal\viewLocator.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\jsRuntime\actionManager.js" />
+    <Content Include="Scripts\jsRuntime\appBridge.js" />
+    <Content Include="Scripts\jsRuntime\configManager.js" />
+    <Content Include="Scripts\jsRuntime\dataManager.js" />
+    <Content Include="Scripts\jsRuntime\deviceManager.js" />
+    <Content Include="Scripts\jsRuntime\eventAggregator.js" />
+    <Content Include="Scripts\jsRuntime\feature.js" />
+    <Content Include="Scripts\jsRuntime\feature.reconfig.js" />
+    <Content Include="Scripts\jsRuntime\feature.vconsole.js" />
+    <Content Include="Scripts\jsRuntime\jqueryExtend.js" />
+    <Content Include="Scripts\jsRuntime\main.js" />
+    <Content Include="Scripts\jsRuntime\parManager.js" />
+    <Content Include="Scripts\jsRuntime\resourceManager.js" />
+    <Content Include="Scripts\jsRuntime\styleManager.js" />
+    <Content Include="Scripts\jsRuntime\utility.js" />
+    <Content Include="Scripts\jsRuntime\viewManager.js" />
+    <Content Include="Scripts\jsRuntime\workflowManager.js" />
+    <Content Include="Scripts\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\knockout-3.4.0.js" />
+    <Content Include="Scripts\knockout.mapper.js" />
+    <Content Include="Scripts\knockout.validation.js" />
+    <Content Include="Scripts\knockout.validation.min.js" />
+    <Content Include="Scripts\linq.min.js" />
+    <Content Include="Scripts\mask\inputmask.date.extensions.js" />
+    <Content Include="Scripts\mask\inputmask.dependencyLib.jquery.js" />
+    <Content Include="Scripts\mask\inputmask.extensions.js" />
+    <Content Include="Scripts\mask\inputmask.js" />
+    <Content Include="Scripts\mask\inputmask.numeric.extensions.js" />
+    <Content Include="Scripts\mask\inputmask.phone.extensions.js" />
+    <Content Include="Scripts\mask\inputmask.regex.extensions.js" />
+    <Content Include="Scripts\mask\jquery.inputmask.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\widgets\maskInput.js" />
+    <Content Include="Scripts\widgets\popupSelect.js" />
+    <Content Include="Scripts\widgets\tableView\pageNav.html" />
+    <Content Include="Scripts\widgets\tableView\tableView.js" />
+    <Content Include="Scripts\workflow.js" />
+    <Content Include="Shells\error.html" />
+    <Content Include="Shells\error.js" />
+    <Content Include="Shells\layout.html" />
+    <Content Include="Shells\layout.js" />
+    <Content Include="Shells\mainView.html" />
+    <Content Include="Shells\mainView.js" />
+    <Content Include="Shells\waitWf.html" />
+    <Content Include="Shells\waitwf.js" />
+    <Content Include="Shells\wfAsk.html" />
+    <Content Include="Shells\wfAsk.js" />
+    <Content Include="Styles\Appearance\default\default.css" />
+    <Content Include="Styles\Appearance\default\durandal.css" />
+    <Content Include="Styles\Appearance\default\grids-responsive.css" />
+    <Content Include="Styles\Appearance\default\jquery.miniKeyboard.css" />
+    <Content Include="Styles\Appearance\default\jquery.mobile-1.4.5.min.css" />
+    <Content Include="Styles\Appearance\default\metro-icons.css" />
+    <Content Include="Styles\Appearance\default\metro-icons.min.css" />
+    <Content Include="Styles\Appearance\default\metro-responsive.css" />
+    <Content Include="Styles\Appearance\default\metro-responsive.min.css" />
+    <Content Include="Styles\Appearance\default\metro-rtl.css" />
+    <Content Include="Styles\Appearance\default\metro-rtl.min.css" />
+    <Content Include="Styles\Appearance\default\metro-schemes.css" />
+    <Content Include="Styles\Appearance\default\metro-schemes.min.css" />
+    <Content Include="Styles\Appearance\default\metro-start-screen.css" />
+    <Content Include="Styles\Appearance\default\metro.css" />
+    <Content Include="Styles\Appearance\default\pure.css" />
+    <Content Include="Styles\Appearance\default\site.css" />
+    <Content Include="Styles\Appearance\default\tab.css" />
+    <Content Include="Styles\Appearance\default\tile-menu.css" />
+    <Content Include="Styles\Themes\center\Dark\color.css" />
+    <Content Include="Styles\Themes\center\Dark\image.css" />
+    <Content Include="Styles\Themes\center\Dark\img\AccountBankCardEject.png" />
+    <Content Include="Styles\Themes\center\Dark\img\AccountBankCardInsert.png" />
+    <Content Include="Styles\Themes\center\Dark\img\AccountIdentityAudit1_content.png" />
+    <Content Include="Styles\Themes\center\Dark\img\AccountIdentityAudit3_content.png" />
+    <Content Include="Styles\Themes\center\Dark\img\android.png" />
+    <Content Include="Styles\Themes\center\Dark\img\arrow-down.png" />
+    <Content Include="Styles\Themes\center\Dark\img\arrow-up.png" />
+    <Content Include="Styles\Themes\center\Dark\img\arrow.png" />
+    <Content Include="Styles\Themes\center\Dark\img\BankCardIn.png" />
+    <Content Include="Styles\Themes\center\Dark\img\BankCardOut.png" />
+    <Content Include="Styles\Themes\center\Dark\img\boccard.png" />
+    <Content Include="Styles\Themes\center\Dark\img\bocebanking.jpg" />
+    <Content Include="Styles\Themes\center\Dark\img\body.jpg" />
+    <Content Include="Styles\Themes\center\Dark\img\btn1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\btn1_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\btn2.png" />
+    <Content Include="Styles\Themes\center\Dark\img\btn2_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\button_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\button_nomal.png" />
+    <Content Include="Styles\Themes\center\Dark\img\Calendar-Date.png" />
+    <Content Include="Styles\Themes\center\Dark\img\card1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\close-list-active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\close-list.png" />
+    <Content Include="Styles\Themes\center\Dark\img\countdown.png" />
+    <Content Include="Styles\Themes\center\Dark\img\DeliverToken.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowbg.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowico_1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowico_2.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowico_3.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowico_4.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowico_5.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowico_6.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowline1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\flowline2.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_1_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_2.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_2_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_3.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_3_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_4.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_4_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_5.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_5_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_5_disable.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_6.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ico_6_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\IDCardIn.png" />
+    <Content Include="Styles\Themes\center\Dark\img\IDCardOut.png" />
+    <Content Include="Styles\Themes\center\Dark\img\img1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\img2.png" />
+    <Content Include="Styles\Themes\center\Dark\img\img3.png" />
+    <Content Include="Styles\Themes\center\Dark\img\img4.png" />
+    <Content Include="Styles\Themes\center\Dark\img\InputPassword.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ios.png" />
+    <Content Include="Styles\Themes\center\Dark\img\LaserPrinter.png" />
+    <Content Include="Styles\Themes\center\Dark\img\logo.png" />
+    <Content Include="Styles\Themes\center\Dark\img\logo_ico.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_10.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_11.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_12.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_13.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_14.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_15.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_16.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_17.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_18.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_19.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_2.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_20.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_21.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_22.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_23.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_24.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_25.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_26.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_27.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_28.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_29.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_3.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_30.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_31.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_32.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_33.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_34.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_35.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_36.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_37.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_38.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_39.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_4.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_40.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_41.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_42.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_43.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_44.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_45.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_46.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_47.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_48.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_49.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_5.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_50.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_51.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_52.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_53.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_54.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_55.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_56.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_57.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_58.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_59.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_6.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_60.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_61.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_62.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_63.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_64.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_65.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_66.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_67.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_7.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_8.png" />
+    <Content Include="Styles\Themes\center\Dark\img\nav_9.png" />
+    <Content Include="Styles\Themes\center\Dark\img\next.png" />
+    <Content Include="Styles\Themes\center\Dark\img\next_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\open-list-active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\open-list.png" />
+    <Content Include="Styles\Themes\center\Dark\img\pic.jpg" />
+    <Content Include="Styles\Themes\center\Dark\img\pic1.jpg" />
+    <Content Include="Styles\Themes\center\Dark\img\pic2.jpg" />
+    <Content Include="Styles\Themes\center\Dark\img\pic3.jpg" />
+    <Content Include="Styles\Themes\center\Dark\img\prev.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prev_active.png" />
+    <Content Include="Styles\Themes\center\Dark\img\print.png" />
+    <Content Include="Styles\Themes\center\Dark\img\PrintReceipt.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-1.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-10.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-11.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-12.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-2.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-3.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-4.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-5.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-6.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-7.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-8.png" />
+    <Content Include="Styles\Themes\center\Dark\img\prod-9.png" />
+    <Content Include="Styles\Themes\center\Dark\img\radio-checked-ico.png" />
+    <Content Include="Styles\Themes\center\Dark\img\radio_btn.png" />
+    <Content Include="Styles\Themes\center\Dark\img\radio_btn_checked.png" />
+    <Content Include="Styles\Themes\center\Dark\img\ReadBarCode.png" />
+    <Content Include="Styles\Themes\center\Dark\img\select_ico.png" />
+    <Content Include="Styles\Themes\center\Dark\img\setpassword.png" />
+    <Content Include="Styles\Themes\center\Dark\img\tiploading.png" />
+    <Content Include="Styles\Themes\center\Dark\img\top-ico.png" />
+    <Content Include="Styles\Themes\center\Dark\img\winphone.png" />
+    <Content Include="Styles\Themes\center\Dark\img\x.jpg" />
+    <Content Include="web.config" />
+    <Content Include="Scripts\knockout.validation.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Res\center\en-us\" />
+    <Folder Include="Styles\Appearance\default\img\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>BOCTS.Client.HTMLCroe</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>BOCTS.Client.HTMLCroe</AssemblyName>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7495</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7495/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

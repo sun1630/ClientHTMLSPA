@@ -1,0 +1,56 @@
+﻿数据量:<input data-bind="value: rowCount" />行
+<button data-bind="click: generateData">生成数据</button>
+<button data-bind="click: reset" style="margin-left:20px;">重置排序</button>
+<button data-bind="click: getOrders" style="margin-left:20px;">获取排序</button>
+<button data-bind="click: setOrders" style="margin-left:20px;">重新排序</button>
+<br />
+当前的排序顺序：<span data-bind="text:sortOrders"></span>
+<br />
+当前的过滤条件：<span data-bind="text:filters"></span>
+<br/>
+<div data-bind="with:TableView" class="form-horizontal dataLister">
+    当前排序执行时间:<span data-bind="text:timespan"></span>毫秒 
+    <br />
+    <select class="input-sm" data-bind="value:$root.filterColumnIndex">
+        <option value="">请选择列</option>
+        <!--ko foreach: settings.columns -->
+        <option data-bind="value: $index(),text: DisplayName"></option>
+        <!--/ko-->
+    </select>  
+    <select class="input-sm" style="margin-left:20px;" data-bind="value: $root.filterValue">
+        <option value="">请选择值</option>
+        <!--ko foreach: $root.filterValues -->
+        <option data-bind="value: $data,text: $data"></option>
+        <!--/ko-->
+    </select>   
+    <button data-bind="click: $root.getFilters" style="margin-left:20px;">获取过滤</button>
+    <button data-bind="click: $root.clearFilters" style="margin-left:20px;">清空过滤</button>
+    <br />
+    <table width="200px" id="demo" class="table table-bordered table-hover table-striped table-responsive">
+        <thead>
+            <tr data-bind="foreach: settings.columns">
+                <th data-bind="attr:{style:UISetting().Head().Style()}">
+                    <div class="dropdown">
+                        <span class="cursor:pointer" data-bind="text:DisplayName,click:$parent.SetOrderby"></span>
+                        <span data-bind="text: order() ? (order() == 'asc' ? '↑':'↓') : ''"></span>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:result">
+            <tr>
+                <td><a data-bind="text:Name"></a></td>
+                <td><span data-bind="text:EnglishName"></span></td>
+                <td><span data-bind="text:Age"></span></td>
+                <td><span data-bind="text:Enabled ? '启用' : '禁用'"></span></td>
+                <td><span data-bind="text:UpdateDate"></span></td>
+                <td><span data-bind="text:UpdateBy"></span></td>
+                <td><span data-bind="text:Age"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div data-bind="compose: { model:$parent.TableView, view:'widgets/tableView/pageNav.html' }"></div>
+</div>
+
+
+

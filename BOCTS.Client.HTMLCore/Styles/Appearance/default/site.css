@@ -1,0 +1,52 @@
+﻿@font-face {
+  font-family: 'ARIALUNI';
+  src: url('fonts/ARIALUNI.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+.idName,.unicode {
+    font-family:ARIALUNI;
+}
+.unRun {
+
+}
+.complete {
+    color:red;
+}
+.running {
+    color:green;
+}
+.customModalBlockout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.8;
+
+    pointer-events: auto;
+
+    -webkit-backface-visibility: hidden;
+
+    -webkit-transition: opacity 0.1s linear;
+    -moz-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear;
+}
+.customModalParent {
+    position:relative;
+    overflow:hidden;
+}
+.customModalHost {
+    top: 50%;
+    left: 50%;
+    position:fixed;
+    opacity: 0;
+    color:white;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: opacity 0.1s linear;
+    -moz-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear;
+}

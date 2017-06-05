@@ -1,0 +1,17 @@
+﻿<nav>
+    <!--ko if:HasPre-->
+    <span style="cursor:pointer;margin-right:20px;" data-bind="click:GoFirst,text:rm.fisrtPage"></span>
+    <span style="cursor:pointer;margin-right:20px;" data-bind="click:GoPre,text:rm.prePage"></span>
+    <!--/ko-->
+    <!--ko foreach:navigatePages-->
+    <span style="cursor:pointer;margin-right:20px;" data-bind="style: { fontWeight: $data==$parent.currentPage() ? 'bold' : '' },text:$data,click:$parent.GoPage"></span>
+    <!--/ko-->
+    <!--ko if:HasNext-->
+    <span style="cursor:pointer;margin-right:20px;" data-bind="click:GoNext,text:rm.nextPage"></span>
+    <span style="cursor:pointer;" data-bind="click:GoLast,text:rm.lastPage "></span>
+    <!--/ko-->
+    <!--ko if:pageCount-->
+    <span style="margin-right:20px;" data-bind="text: rm.totalPages().replace('_Total_',pageCount())"></span>
+    <!--/ko-->
+</nav>
+

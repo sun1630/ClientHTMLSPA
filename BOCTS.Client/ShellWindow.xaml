@@ -1,0 +1,21 @@
+﻿<Fluent:RibbonWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:local="clr-namespace:BOCTS.Client"
+        x:Class="BOCTS.Client.ShellWindow" 
+        xmlns:prism="http://www.codeplex.com/prism"
+        Title="核心银行客户端" Height="600" Width="800" 
+        Icon="Images\boc.png"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized" Loaded="RibbonWindow_Loaded">
+    <Grid x:Name="RootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="RibbonRow" Height="Auto"/>
+            <RowDefinition x:Name="ClientRow" Height="*"/>
+        </Grid.RowDefinitions>
+        <ContentControl  prism:RegionManager.RegionName="RibbonRegion"></ContentControl>
+        <ContentControl x:Name="MainRegion" Grid.Row="1" prism:RegionManager.RegionName="MainRegion"></ContentControl>
+
+    </Grid>
+</Fluent:RibbonWindow>

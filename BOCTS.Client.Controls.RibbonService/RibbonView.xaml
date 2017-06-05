@@ -1,0 +1,24 @@
+﻿<Fluent:Ribbon x:Class="BOCTS.Client.Controls.RibbonService.RibbonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent">
+    <Fluent:Ribbon.Resources>
+        
+    </Fluent:Ribbon.Resources>
+    <!--<Fluent:Ribbon.Menu>
+        --><!--<Fluent:Backstage  Header="文件" x:Name="Backstage" IsOpenChanged="Backstage_IsOpenChanged"  >
+                <Fluent:BackstageTabControl>
+                <Fluent:Button Header="关闭" x:Name="btnClose" Click="btnClose_Click"/>
+            </Fluent:BackstageTabControl>
+        </Fluent:Backstage>--><!--
+    </Fluent:Ribbon.Menu>-->
+    <Fluent:RibbonTabItem  Header="用户" ReduceOrder="(P),(P),(P),(P),(P)">
+        <Fluent:RibbonGroupBox Header="用户">
+            <Fluent:Button Header="关闭"  Icon="Images\signoff.png" LargeIcon="Images\signoff.png" Click="btnClose_Click" />
+        </Fluent:RibbonGroupBox>
+         <Fluent:RibbonGroupBox Header="WebBrowser" Width="120">
+            <Fluent:Button Header="打开"  Icon="Images\LargeIcon.png" LargeIcon="Images\LargeIcon.png" Click="Button_Click" />
+        </Fluent:RibbonGroupBox>
+    </Fluent:RibbonTabItem>
+    
+</Fluent:Ribbon>
