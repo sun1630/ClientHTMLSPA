@@ -1,0 +1,17 @@
+﻿/*
+    首页菜单|磁贴样式
+*/
+.tile,.tile-large { background-color:#00a8ec}
+.tile-c1 { background-color:#00D9A3  }
+.tile-c2 { background-color:#59B4FF  }
+.tile-c3 { background-color:#A3D900  }
+.tile-c4 { background-color:#FF9E3D  }
+.tile-c5 { background-color:#FFBA38  }
+.tile-c6 { background-color:#1DC5E7  }
+.tile-c7 { background-color:#FFBF00  }
+.tile-c8 { background-color:#FF7373  }
+.tile-c9 { background-color:#FFC926  }
+.tile-c10 { background-color:#6CCAFF  }
+.tile-c11 { background-color:rgba(37,200,255,1)  }
+.tile-c12 { background-color:#f874a4  }
+.tile-label { color:#FFF }

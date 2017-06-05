@@ -1,0 +1,113 @@
+﻿.datagrid-table caption { color: #000; }
+.datagrid-table thead { background-color: #e0e0e0; color: #000; }
+.datagrid-table td { background-color: transparent; }
+.datagrid-table-odd td { background-color: #ff0000; }
+/* nth-child selector for modern browsers */
+.datagrid-table-striped tr:nth-child(2n-1) td { background-color: #f2f2f2; }
+.button-primary { color: #ff0000; background-color: blue; }
+.button-primary-color { }
+.button-secondary-color { }
+.button-success, .button-error, .button-warning, .button-secondary { color: white; /*border-radius: 4px;*/
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+.button-success { background: blue; /* this is a green */ }
+.button-error { background: rgb(202, 60, 60); /* this is a maroon */ }
+.button-warning { background: rgb(223, 117, 20); /* this is an orange */ }
+.button-secondary { background: rgb(66, 184, 221); /* this is a light blue */ }
+.tabs label:hover { /*background: #703688;*/
+  
+}
+.tabs label { background: #eee; }
+.tabs .tab-content { background: #FFF; }
+.tabs [id^="tab"]:checked + label { color: #FFF; background: rgba(189, 29, 65, 1); }
+/*
+    accordion
+*/
+
+
+
+
+
+.accordion > ul > li { background-color: #1f1f1f; }
+.accordion-title, .accordion-select { background-color: #2d2d2d; color: #ffffff; }
+.accordion-select:hover ~ .accordion-title, .accordion-select:checked ~ .accordion-title { background-color: #3068cc; }
+.accordion-content { background-color: #3e3e3e; color: #f5f2f0; }
+.pagetitle { color: #B80029; font-weight: bold }
+.navbar a img { border: 4px solid #CC506C; }
+.navbar a span { color: #CB4C68; }
+.navbar a:active img { background: #CC506C }
+.tile, .tile-large { background-color: #00a8ec }
+.tile-c1 { background-color: #00D9A3 }
+.tile-c2 { background-color: #59B4FF }
+.tile-c3 { background-color: #A3D900 }
+.tile-c4 { background-color: #FF9E3D }
+.tile-c5 { background-color: #FFBA38 }
+.tile-c6 { background-color: #1DC5E7 }
+.tile-c7 { background-color: #FFBF00 }
+.tile-c8 { background-color: #FF7373 }
+.tile-c9 { background-color: #FFC926 }
+.tile-c10 { background-color: #6CCAFF }
+.tile-c11 { background-color: rgba(37,200,255,1) }
+.tile-c12 { background-color: #f874a4 }
+.tile-label { color: #FFF }
+.button-red { color: #FFF }
+.namebg { background-color: #eee; border: 1px solid #C4C4C4; }
+.tips { color: #ff7f00; }
+.pure-form input:not([type]):focus, .pure-form input[type='date']:focus, .pure-form input[type='number']:focus, .pure-form input[type='password']:focus { border-color: #AAA; color: #666; box-shadow: 0 0 5px #4c5e51 }
+.pure-form input:not([type]):focus, .pure-form input[type='text']:focus, .pure-form input[type='number']:focus, .pure-form input[type='password']:focus { border-color: #AAA; color: #666; box-shadow: 0 0 5px #4c5e51 }
+.cord_type1 { float: left; background: #CC981D }
+.cord_type2 { float: right; background: #D2627B }
+.cord_gray { background: #888 !important }
+/*产品签约*/
+.prodcont { /*background-color:#fff;*/
+}
+.prod_c1 { background: #4DD2FF; }
+.prod_c2 { background: #FFBF00; }
+.prod_c3 { background: #A3D900; }
+.prod_c4 { background: #00D9A3; }
+.warm-tip ul li { color: #FF7F00; }
+/*信息确认*/
+.confirminfo, .confirminfo_top, .confirminfo_bottom { border: 5px solid #fff; background-color: rgba(246,246,246,0.5); }
+.confirminfo_left_title { border-bottom: 1px solid rgba(220, 220, 220, 1); }
+.confirminfo_left_content table { border-top: 1px solid #fff; }
+.info_color { color: #888; }
+.confir_td1_border, .confir_td2_border { border-top: 3px solid #fff; border-right: 3px solid #fff; }
+.confir_td3_border { border-top: 3px solid #fff; }
+.th_bg { background-color: rgba(239, 239, 239, 1); }
+.safety-tips { color: rgba(251, 128, 9, 1); }
+.counter-bar { color: #00B285;/*animation:changecol 10s*/ }
+
+.sort-choose { border: 2px solid #ff0000 !important }
+.navbar a.nav_grey img { border-color: #bbb; background: #d4d4d4 }
+.navbar a.nav_grey span { color: #888 }
+.loginbar { background: rgba(238, 238, 238, 0.6); border: 5px solid #FFF; box-shadow: 0 0 3px #666; border-radius: 10px }
+.confirminfo-background,.card-info{  border: 5px solid #fff; background-color: rgba(238,238,238,0.6); box-shadow:0 0 3px #666}
+.confir-border{ outline:1px solid #fff;} 
+.card-info-cont { color:#888}
+.shopping-center { border: 5px solid #FFF; box-shadow: 0px 0px 3px #ccc; }
+.shopping-center .pure-table td a { color: #666; }
+.disable-row { background: #e4e4e4 !important }
+.disable-row td *{ color:#ccc !important}
+.button_choose {min-width:100px; min-height:41px; background-color:#e2e2e2;}
+.button_choose_date{ border:2px solid #ff0000; }
+.choose-row{ background:#ff7f00 !important}
+.fgx{height:1px; background:#ddd}
+.tipbar {margin:5px; text-align:center; background:#eee; padding:10px; border:5px solid #FFF; box-shadow:0 0 3px #666}
+.tips-span{ position:relative; top:150px; color:#FFF; font-size:30px}
+@keyframes changecol {  0% {
+color:#00B285;
+}
+ 50% {
+color:#FFBF00;
+}
+ 100% {
+color:#F00;
+}
+}
+ @keyframes xz {  0% {
+transform:rotate(0)
+}
+ 100% {
+transform:rotate(350deg)
+}
+}
+
