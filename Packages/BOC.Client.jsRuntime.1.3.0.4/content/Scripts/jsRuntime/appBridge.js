@@ -10,7 +10,7 @@
                 if (p_json.progressArray) {
                     p_json.progressArray.forEach(function (item) {
                         setTimeout(function () {
-                            p_progress(JSON.stringify(item));   
+                            p_progress(JSON.stringify(item));     
                         }, item.timespan);
                     });
 
