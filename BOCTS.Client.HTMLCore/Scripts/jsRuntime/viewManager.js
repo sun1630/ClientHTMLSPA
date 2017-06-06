@@ -1,7 +1,7 @@
 ﻿define(['durandal/system', 'knockout', 'jsRuntime/dataManager', 'jsRuntime/workflowManager',
     'durandal/app', 'plugins/dialog', 'jsRuntime/resourceManager', 'jsRuntime/utility',
-    'jsRuntime/eventAggregator', 'jsRuntime/configManager', 'jsRuntime/styleManager', 'jsRuntime/actionManager'],
-    function (system, ko, dm, wm, app, dialog, rm, utility, evtAggtor, cm, styleManager, am) {
+    'jsRuntime/eventAggregator', 'jsRuntime/configManager', 'jsRuntime/styleManager', 'jsRuntime/actionManager', 'udl/vmProvider'],
+    function (system, ko, dm, wm, app, dialog, rm, utility, evtAggtor, cm, styleManager, am, vmp) {
         var viewAreas = {};
         var vm = {
             //页面Tab显示区域 格式{ 'tabId': guid, 'tabName': '', runWfInstance: wfinstance, "tabArea": ko.observable() };
@@ -137,7 +137,7 @@
                         }
                     },
                     /**
-                     * This function is called to reposition the model view.
+                     * This function is called to rgeposition the model view.
                      * @method reposition
                      * @param {DOMElement} view The dialog view.
                      */
@@ -381,8 +381,8 @@
                                     //是否对话框
                                     if (_vmContext.isDialog != null && _vmContext.isDialog)
                                         model.__isDialog__ = true;
-
-                                    model.cx["wm"].currentViewModel = model;
+                                    //todo: skip
+                                    //model.cx["wm"].currentViewModel = model;
                                     vm.registerView(model);
                                 } else {
                                     model = module;
@@ -438,11 +438,16 @@
                                     //    'view': modelId + '.html'
                                     //});
 
+                                    //var newmodel = new vmp(model);
+
+
                                     var mvConfig = {
                                         'model': model,
                                         'view': modelId + '.html',
                                         'wfId': _vmContext.instanceId
                                     };
+
+                                    
 
                                     if (!_vmContext.isTab)
                                         viewAreas[viewAreaName](mvConfig);
