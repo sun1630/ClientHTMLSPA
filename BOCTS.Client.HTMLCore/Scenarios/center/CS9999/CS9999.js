@@ -13,34 +13,46 @@
                     dm: cx.dm,
                     instanceid: cx.instanceId,
                     tabId: cx.tabId,
+                    '备选币种':{
+                        value:[{},{}],
+                        metadata: {
+                            needObserve: true
+                        }
+                    },
+                    '选中币种':{
+                        value:'0001',
+                        metadata: {
+                            needObserve: true
+                        }
+                    },
                     BirthDate: {
                         value: 'Hello World!',
                         metadata: {
                             needObserve: true,
-                            maskInput: "yyyy-mm-dd",
+                            maskInput:  function(target) {
+                                return target.F1();
+                            }
                         }
                     },
-                    currencys: {
-                        value: [
-                            { code: 'fixed(2)', value: '人民币' },
-                            { code: 'fixed(3)', value: '美元' },
-                            { code: 'fixed(4)', value: '日元' },
-                        ],
-                        metadata: {
-                            needObserve: true
-                        }
-                    },
-                    selCurrency: {
-                        value:'',
-                        metadata: {
-                            needObserve: true
-                        }
-                    }
-                },
-                methods: {
-                    method1: function () {
-                        BirthDate() + 1;
-                    },
+
+                //    test: {
+                //value: 'Hello World!',
+                //metadata: {
+                //    needObserve: true,
+                //    maskInput: dic.account,
+                //}
+            }
+
+
+
+
+
+
+
+
+
+
+
                 }
             })
 
@@ -83,5 +95,5 @@
 
 
     });
-//return m;
-//});
+        //return m;
+    //});

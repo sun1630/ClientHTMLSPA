@@ -58,9 +58,36 @@
         })
     }
 
+    ko.bindingHandlers.coutomValidate = {
+        init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+            //             此处当你定义的绑定被第一次应用于一个元素上时会被调用       
+            //         在这设置任意初始化程序、事件处理程序 
+
+            
+
+        }, update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+            var value = valueAccessor();
+            var allBindings = allBindingsAccessor();
+            var valueUnwrapped = ko.utils.unwrapObservable(value);
+            var targetValue = allBindings.value;
+
+            $(element).keyup(function () {
+                var v = $(element).val();
+                //targetValue(v);
+                console.log(value() + "===============" + v);
+            });
+
+            console.log(value() +"==============="+ targetValue());
+        }
+    };
+
+
+
     return function (opt) {
 
         var local = function () {
+            var viewModel = {};
+
             //遍历data 字段
             for (var d in opt.data) {
                 var field = d,
@@ -86,25 +113,36 @@
 
                         //字段是否需要 observable
                         if (fieldValue.metadata.needObserve) {
-                            this[field] = ko.observable(fieldValue.value).extend(ext);
-
-                            if (objmd.hasOwnProperty('format')) {
-                                this[field] = objmd.format(fieldValue.value);
+                            if (objmd.hasOwnProperty('maskInput')) {
+                                viewModel[field] = {
+                                    value: ko.observable(fieldValue.value).extend(ext),
+                                    maskInput: ko.observable(objmd.maskInput)
+                                };
+                            } else {
+                                viewModel[field] = {
+                                    value: ko.observable(fieldValue.value).extend(ext)
+                                };
                             }
 
                         } else {
-                            this[field] = fieldValue.value;
+                            viewModel[field] = {
+                                value: fieldValue.value
+                            };
                         }
+                    } else {
+                        viewModel[field] = fieldValue;
                     }
+                } else {
+                    viewModel[field] = fieldValue;
                 }
             }
 
             //方法处理
             for (var f in opt.methods) {
-                this[f] = opt.methods[f];
+                viewModel[f] = opt.methods[f];
             }
 
-            return this;
+            return viewModel;
         }
         return new local();
     };

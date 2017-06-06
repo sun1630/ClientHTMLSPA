@@ -1,2 +1,18 @@
 ﻿
-<span data-bind="text:test"></span>
+<h3>maskInput</h3>
+<p>
+    <span data-bind="text:BirthDate.value"></span>
+    <input type="text" data-bind="value:BirthDate.value,coutomValidate:BirthDate.maskInput" />
+</p>
+
+<h3>maskInput 联动</h3>
+<p>
+    <select data-bind="options: currencys.value,
+                       optionsText: 'value',
+                       optionsValue:'code',
+                       optionsCaption: '请选择',
+                       value:selCurrency.value
+                       "></select>
+</p>
+
+<p>动态获取 maskInput 规则：<span data-bind="text:selCurrency.value"></span> </p>
