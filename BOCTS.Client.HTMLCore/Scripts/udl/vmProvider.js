@@ -61,8 +61,6 @@
     return function (opt) {
 
         var local = function () {
-            var fields = [];
-
             //遍历data 字段
             for (var d in opt.data) {
                 var field = d,
@@ -90,60 +88,20 @@
                         if (fieldValue.metadata.needObserve) {
                             this[field] = ko.observable(fieldValue.value).extend(ext);
 
-
-                            if (objmd.hasOwnProperty('beforeRead') ||
-                                objmd.hasOwnProperty('beforeWrite') ||
-                                objmd.hasOwnProperty('format')) {
-                                fields.push({
-                                    field: field,
-                                    target: this
-                                });
+                            if (objmd.hasOwnProperty('format')) {
+                                this[field] = objmd.format(fieldValue.value);
                             }
 
-                            //if (objmd.hasOwnProperty('beforeRead') && objmd.hasOwnProperty('beforeWrite')) {
-                            //    this[field] = ko.computed({
-                            //        read: objmd.beforeRead(this),
-                            //        write:objmd.beforeWrite(this, fieldValue.value)
-                            //    })
-                            //}
-
-                            //if (objmd.hasOwnProperty('format')) {
-                            //    this[field] = ko.computed(function () {
-                            //        objmd.format(fieldValue.value);
-                            //    })
-                            //}
                         } else {
                             this[field] = fieldValue.value;
                         }
-
                     }
                 }
             }
 
-            for (var d in fields) {
-                var target = fields[d].target;
-
-                var field = fields[d].field;
-                var fieldValue = opt.data[field];
-                var objmd = fieldValue.metadata;
-
-                if (d == 1 && objmd.hasOwnProperty('beforeRead') && objmd.hasOwnProperty('beforeWrite')) {
-                    target[field] = ko.computed({
-                        read: function () {
-                            return objmd.beforeRead(target);
-                        },
-                        write: function (value) {
-                            objmd.beforeWrite(target, value);
-                        }
-                    });
-                }
-
-                //if (objmd.hasOwnProperty('format')) {
-                //    this[field] = ko.computed(function () {
-                //        objmd.format(fieldValue.value);
-                //    })
-                //}
-
+            //方法处理
+            for (var f in opt.methods) {
+                this[f] = opt.methods[f];
             }
 
             return this;
