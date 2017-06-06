@@ -1,99 +1,114 @@
-﻿define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionManager',
-    'widgets/popupSelect', 'widgets/maskInput', 'jsRuntime/workflowManager',
-     'jsRuntime/utility', 'udl/vmProvider'
-],
-    function (pm, rm, am, popupSelect, maskInputs, wm, utility, vmp) {
-        var m = function (cx) {
-            var model = new vmp({
-                data: {
-                    cx: cx,
-                    rm: rm.global,
-                    am: am.global,
-                    wm: cx.wm,
-                    dm: cx.dm,
-                    instanceid: cx.instanceId,
-                    tabId: cx.tabId,
-                    '备选币种':{
-                        value:[{},{}],
-                        metadata: {
-                            needObserve: true
-                        }
+﻿define(['activities/ShowScreenActivity', 'activities/DataMappingActivity', 'activities/ConnectServerActivity', 'activities/CallSubFlowActivity']
+    ,
+    function (showScreen, setDataAct, connectServer,  CallSubFlowActivity) {
+        return {
+            $inputs: '*',
+            $outputs: '*',
+            $global: { sendData: null, showData: null },
+            activities: {
+                //'readIDCard': wfjs.Activity({
+                //    activity: new readIDCard(),
+                //    $inputs: {
+                //    },
+                //    next: 'showAccount'
+                //}),
+                'showAccount': wfjs.Activity({
+                    activity: new showScreen(),
+                    $inputs: {
+                        Page: '"Scenarios/center/CS1015/CS1015_1"',
+                        //PageTimeOut: 60,     //int型 设置页面超时时间
+                        //DialogTimeOut: 10,   //int型 设置页面超时后对话框超时时间
+                        //DialogMessage: '"$rm.global.message.timeOutTips()"',  //string型 设置页面超时后对话框显示信息
+                        //ForPadMessage: '"$rm.global.message.mainViewTimeOut()"',  //string型 设置对话框超时后发Pad信息
                     },
-                    '选中币种':{
-                        value:'0001',
-                        metadata: {
-                            needObserve: true
-                        }
+                    next: 'showName'
+                }),
+                'CallSubFlowActivity1': wfjs.Activity({
+                    activity: new CallSubFlowActivity(),
+                    $inputs: { SubChartName: '"CS1015/CS1015-2"', },
+                    $outputs: { '*': '*' },
+                    next: 'showName'
+                }),
+                'showName': wfjs.Activity({
+                    activity: new showScreen(),
+                    $inputs: {
+                        Page: '"Scenarios/center/CS1015/CS1015_3"',
+                        ShowType: '"normal"',//normal model
+                        //PageTimeOut: 10,     //int型 设置页面超时时间
+                        //DialogTimeOut: 10,   //int型 设置页面超时后对话框超时时间
+                        //DialogMessage: '"$rm.global.message.timeOutTips()"',  //string型 设置页面超时后对话框显示信息
+                        //ForPadMessage: '"$rm.global.message.mainViewTimeOut()"',  //string型 设置对话框超时后发Pad信息
                     },
-                    BirthDate: {
-                        value: 'Hello World!',
-                        metadata: {
-                            needObserve: true,
-                            maskInput:  function(target) {
-                                return target.F1();
-                            }
-                        }
+                    next: 'null'
+                }),
+                //'setdata': wfjs.Activity({
+                //    activity: new setDataAct(),
+                //    $inputs: {
+                //        Mapping: [
+                //            { source: "account", target: "acc" },
+                //            { source: "password", target: "pwd" },
+                //            { source: "name", target: "name" },
+                //            { source: "birthday", target: "birthday" }
+                //        ]
+                //    },
+                //    $outputs: { 'Result': 'sendData' },
+                //    next: 'setdata2'
+                //}),
+                //'setdata2': wfjs.Activity({
+                //    activity: new setDataAct(),
+                //    $inputs: {
+                //        Source: '"$dm"',
+                //        Target: 'this.sendData',
+                //        Mapping: [
+                //            { source: "account", target: "acc2" },
+                //            { source: "password", target: "pwd2" },
+                //            { source: "name", target: "name2" },
+                //            { source: "birthday", target: "birthday2" }
+                //        ]
+                //    },
+                //    $outputs: { 'Result': 'sendData' },
+                //    next: 'connectServer'
+                //}),
+                //'connectServer': wfjs.Activity({
+                //    activity: new connectServer(),
+                //    $inputs: {
+                //        Server: '"wf"',
+                //        Url: '"wf/request"',
+                //        Pars: { 'wf': 'CT1010' },
+                //        SendData: 'this.sendData'
+                //    },
+                //    $outputs: { 'Result': 'showData' },
+                //    next: 'showResult'
+                //}),
+                'showResult': wfjs.Activity({
+                    activity: new showScreen(),
+                    $inputs: {
+                        Page: '"Scenarios/center/CS1012/CS1012_3"',
+                        ShowData: 'this.showData'
                     },
-
-                //    test: {
-                //value: 'Hello World!',
-                //metadata: {
-                //    needObserve: true,
-                //    maskInput: dic.account,
-                //}
+                    $outputs: {
+                        Result: 'showData'
+                    },
+                    next: 'Showfourth'
+                }),
+                'Showfourth': wfjs.Activity({
+                    activity: new showScreen(),
+                    $inputs: {
+                        Page: '"Scenarios/center/CS1012/CS1012_4"',
+                        ShowData: 'this.showData'
+                    },
+                    next: 'null'
+                }),
+                //'ErrorEndFlow': wfjs.Activity({
+                //    activity: new TradeSucceedActivity(),
+                //    next: null
+                //})
+                //'ErrorEndFlow': wfjs.Activity({
+                //    activity: new EndActivity(),
+                //    $inputs: { IsGoHome: true, HomePage: '"Shells/Counter/mainView"', },
+                //    $outputs: {},
+                //    next: null
+                //})
             }
-
-
-
-
-
-
-
-
-
-
-
-                }
-            })
-
-            return model;
         };
-
-        return m;
-
-        //var m = function (cx) {
-        //    var self = this;
-        //    this.cx = cx;
-        //    this.rm = rm.global;
-        //    this.am = am.global;
-        //    this.wm = cx.wm;
-        //    this.dm = cx.dm;
-        //    this.instanceid = cx.instanceId;
-        //    this.tabId = cx.tabId;
-
-        //    var model = {
-        //        data: {
-        //            test: {
-        //                value: 100,
-        //                metadata: {
-        //                    needObserve: true,
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //data: {
-        //        rate: {
-        //            value: 100,
-        //            metadata: {
-        //                needObserve: true,
-
-        //                }
-        //        },
-
-
-
-
     });
-        //return m;
-    //});
