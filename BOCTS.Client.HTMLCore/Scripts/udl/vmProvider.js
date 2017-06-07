@@ -69,9 +69,12 @@
         }
     };
 
+    //检查字段在target是否存在
+    function checkField(target, field, fieldValue) {
 
+    }
 
-    return function (opt) {
+    return function (opt,args) {
 
         var local = function () {
             var viewModel = {};
@@ -80,6 +83,9 @@
             for (var d in opt.data) {
                 var field = d,
                     fieldValue = opt.data[d];
+
+                //判断字段是否在trans
+
 
                 //字段值是否为对象
                 if (fieldValue instanceof Object) {

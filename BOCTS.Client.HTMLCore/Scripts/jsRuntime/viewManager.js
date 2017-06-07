@@ -382,7 +382,7 @@
                                     if (_vmContext.isDialog != null && _vmContext.isDialog)
                                         model.__isDialog__ = true;
                                     //todo: skip
-                                    model.cx["wm"].currentViewModel = model;
+                                    //model.cx["wm"].currentViewModel = model;
                                     vm.registerView(model);
                                 } else {
                                     model = module;
