@@ -1,5 +1,6 @@
 ﻿define([], function () {
     var c = {
+        textMask:"rmb:",
         account                        :"",        //mask
         Alphanumeric                   :"",        //mask
         BancsNumber                    :"",        //mask

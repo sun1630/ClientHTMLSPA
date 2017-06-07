@@ -55,17 +55,29 @@
 
         }, update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
             var value = valueAccessor();
+
+            console.log('mask ggz' + value());
+
+
+
             var allBindings = allBindingsAccessor();
             var valueUnwrapped = ko.utils.unwrapObservable(value);
             var targetValue = allBindings.value;
 
+            if (value() == 'hkd:####') {
+                targetValue('10111.00');
+            }
+
+            console.log(targetValue());
+
             $(element).keyup(function () {
                 var v = $(element).val();
+
                 //targetValue(v);
-                console.log(value() + "===============" + v);
+                //console.log(value() + "todo mask " + v);
             });
 
-            console.log(value() + "===============" + targetValue());
+            //console.log(value() + "===============" + targetValue());
         }
     };
 
@@ -74,7 +86,7 @@
 
     }
 
-    return function (opt,args) {
+    return function (opt, args) {
 
         var local = function () {
             var viewModel = {};
@@ -84,47 +96,57 @@
                 var field = d,
                     fieldValue = opt.data[d];
 
-                //判断字段是否在trans
-
-
                 //字段值是否为对象
                 if (fieldValue instanceof Object) {
                     //验证字段是否包含 matedata 
                     if (fieldValue.hasOwnProperty('metadata')) {
                         var objmd = fieldValue.metadata;
                         var ext = {};  //ko扩展
-                        if (objmd.hasOwnProperty('required')) {
-                            ext.required = objmd.required;
+                        if (objmd.hasOwnProperty('inputComlplete')) {
+                            ext = objmd.inputComlplete;
                         }
-                        if (objmd.hasOwnProperty('readonly')) {
-                            ext.readonly = objmd.readonly;
-                        }
-
                         ext.logChange = { root: local, path: field };
 
-                        //字段是否需要 observable
                         if (fieldValue.metadata.needObserve) {
-                            if (objmd.hasOwnProperty('maskInput')) {
-                                viewModel[field] = {
-                                    value: ko.observable(fieldValue.value).extend(ext),
-                                    maskInput: ko.observable(objmd.maskInput)
-                                };
-                            } else {
-                                viewModel[field] = {
-                                    value: ko.observable(fieldValue.value).extend(ext)
-                                };
-                            }
-
-                        } else {
                             viewModel[field] = {
-                                value: fieldValue.value
+                                value: ko.observable(fieldValue.value).extend(ext),
                             };
+                        } else {
+                            viewModel[field] = fieldValue;
                         }
                     } else {
                         viewModel[field] = fieldValue;
                     }
                 } else {
                     viewModel[field] = fieldValue;
+                }
+            }
+
+            //第二次遍历
+            for (var d in opt.data) {
+                var field = d,
+                    fieldValue = opt.data[d];
+                //字段值是否为对象
+                if (fieldValue instanceof Object) {
+                    //验证字段是否包含 matedata 
+                    if (fieldValue.hasOwnProperty('metadata')) {
+                        var objmd = fieldValue.metadata;
+                        if (objmd.hasOwnProperty('inputMask')) {
+                            viewModel[field].inputMask = ko.observable(objmd.inputMask);
+                        }
+                        if (objmd.hasOwnProperty('format')) {
+                            var fld = field;
+                            var fmtObj = objmd;
+                            viewModel[fld].format = ko.computed(function () {
+
+                                console.log(viewModel[fld].value());
+                                console.log(fld);
+                                // return parseFloat(viewModel[fld].value()) * 11;
+                                return fmtObj.format(viewModel, viewModel[fld].value());
+
+                            });
+                        }
+                    }
                 }
             }
 

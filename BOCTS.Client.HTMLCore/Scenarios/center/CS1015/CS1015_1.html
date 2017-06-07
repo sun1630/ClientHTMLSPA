@@ -1,5 +1,4 @@
-﻿
-<!--<h3>maskInput</h3>
+﻿<!--<h3>maskInput</h3>
 <p>
     <span data-bind="text:BirthDate.value"></span>
     <input type="text" data-bind="value:BirthDate.value,coutomValidate:BirthDate.maskInput" />
@@ -16,8 +15,7 @@
 </p>
 
 <p>动态获取 maskInput 规则：<span data-bind="text:selCurrency.value"></span> </p>-->
-
-<h3>非空</h3>
+<!--<h3>非空</h3>
 <input type="text" data-bind="value:isRequired.value" />
 
 <br />
@@ -28,11 +26,31 @@
 <p>
     更新后的值：<input type="text" data-bind="value:newRw.value" />
     <button type="button" data-bind="click:btnUpdateRw">更新</button>
+</p>-->
+
+<p>
+    <select data-bind="options: currencys.value,
+                       optionsText: 'value',
+                       optionsValue:'mask',
+                       optionsCaption: '请选择',
+                       value:amount.inputMask
+                       "></select>
+</p>
+<span data-bind="text:amount.inputMask"></span>
+
+<p>
+    原始值：
+    <input type="text" data-bind="value:amount.value,coutomValidate:amount.inputMask" />
+</p>
+<p>
+    格式化后的值：<span data-bind="text:amount.format"></span>
+</p>
+<p>
+    maskInput掩码值：<span data-bind="text:amount.inputMask"></span>
 </p>
 
-<br />
-<h3>控制文本框输入长度</h3>
-<input type="text" data-bind="value:isMinlength.value" />
+
+
 
 
 

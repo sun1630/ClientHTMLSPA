@@ -1,122 +1,61 @@
 ﻿define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionManager',
     'widgets/popupSelect', 'widgets/maskInput', 'jsRuntime/workflowManager',
-     'jsRuntime/utility', 'udl/share', 'udl/vmProvider'
+     'jsRuntime/utility', 'udl/vmProvider'
 ],
-    function (pm, rm, am, popupSelect, maskInputs, wm, utility, share, vmp) {
+    function (pm, rm, am, popupSelect, maskInputs, wm, utility, vmp) {
         var m = function (cx) {
             var model = new vmp({
                 data: {
-                    cx: cx,
-                    rm: rm.global,
-                    am: am.global,
-                    wm: cx.wm,
-                    dm: cx.dm,
-                    instanceid: cx.instanceId,
-                    tabId: cx.tabId,
-                    share: share,
-                    //BirthDate: {
-                    //    value: '1999-09-09',
-                    //    metadata: {
-                    //        needObserve: true,
-                    //        maskInput: "yyyy-mm-dd",
-                    //        //Remote: dd,
-                    //        //LocalPath: gg,
-                    //        //BaseCurrency: "CNY",
+                    //cx: cx,
+                    //rm: rm.global,
+                    //am: am.global,
+                    //wm: cx.wm,
+                    //dm: cx.dm,
+                    //instanceid: cx.instanceId,
+                    //tabId: cx.tabId,
+                    //share: share,
 
-                    //    }
-                    //},
-                    //Amount: {
-                    //    value: '',
-                    //    metadata: {
-                    //        needObserve: true,
-                    //        CurrencyField: "currencys",
-                    //        Decimal:'',
-                    //    }
-                    //},
-                    //currencys: {
-                    //    value: [
-                    //        { code: 'fixed(2)', value: '人民币' },
-                    //        { code: 'fixed(3)', value: '美元' },
-                    //        { code: 'fixed(4)', value: '日元' },
-                    //    ],
-                    //    metadata: {
-                    //        needObserve:true,
-                    //        DataSourceType:Dynamic,//Static,Dynamic,Transaction
-                    //        DataSourceKey:Province,
-                    //        DataRef:,
-                    //    }
-                    //},
-                    //selCurrency: {
-                    //    value: dm.teller.basecurrency,
-                    //    metadata: {
-                    //        needObserve: true,
-                    //    }
-                    //},
+                    amount: {
+                        value: 1000,
 
-
-                    isRequired: {
-                        value: '测试',
                         metadata: {
                             needObserve: true,
-                            required: true,
-                            //readonly: true
+                            needShare: true,
+
+                            inputMask: "YYYY-MM-DD",
+                            inputComlplete: {
+                                //required: { params: true, message: "密码不能为空" },
+                                //max: { params: 5, message: '最大值为5' },
+                                //readonly: true,
+                            },
+                            format: function (target, value) {
+
+
+                                var newValue = parseFloat(target.rate.value()) * parseFloat(value);
+                                return newValue;
+                            }
                         }
                     },
-                    isRw: {
-                        value: '测试',
+                    rate: {
+                        value: 10,
                         metadata: {
-                            needObserve: true,
-                            readonly: true
+                            needObserve: true
                         }
                     },
-                    newRw: {
-                        value: '',
+                    currencys: {
+                        value: [
+                            { code: 'cny', value: '人民币', mask: 'cny:####' },
+                            { code: 'usd', value: '美元', mask: 'usd:####' },
+                            { code: 'hkd', value: '港币', mask: 'hkd:####' }
+                        ],
                         metadata: {
                             needObserve: true
                         }
                     },
 
-                    //'归属省列表': {
-                    //    value: [],
-                    //    metadata: {
-                    //        needObserve: true,
-                    //        DataSourceType:Dynamic,//Static,Dynamic,Transaction
-                    //        DataSourceKey:Province,
-                    //    }
-                    //},
-                    //'选中省Code':{
-                    //    value: '',
-                    //    metadata: {
-                    //        needObserve: true
-                    //    }
-
-                    //},
-                    //'下属地市列表': {
-                    //    value: [], // target.
-                    //    metadata: {
-                    //        needObserve: true,
-                    //        DataSourceType:Dynamic,//Static,Dynamic,Transaction
-                    //        DataSourceKey:Province,
-                    //    }
-                    //},
-                    //'下属地市Code': {
-                    //    value: '',
-                    //    metadata: {
-                    //        needObserve: true,
-                    //        DataSourceType:Dynamic,//Static,Dynamic,Transaction
-                    //        DataSourceKey:Province,
-                    //    }
-                    //},
-
                 },
                 methods: {
-                    btncurrentRw: function () {
-                        alert(this.isRw.value());
-                    },
-                    btnUpdateRw: function () {
-                        var value = this.newRw.value();
-                        this.isRw.value(value,true);
-                    },
+
                 }
             })
 
