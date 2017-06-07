@@ -22,7 +22,7 @@
 
             this.viewState = 'new';
             this.account = ko.observable(12).extend({ required: { params: true, message: "不能为空" }, ByteMaxLength: { params: 5, message: '最长不能超过5个字节', onlyIf: function () { return true } } });
-            this.accountuse = ko.observable();
+            this.accountuse = ko.observable(111);
             this.password = ko.observable().extend({ required: { params: true, message: "密码不能为空" } });
 
             this.province1Value = ko.observable();
