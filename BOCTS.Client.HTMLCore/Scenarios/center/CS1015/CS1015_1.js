@@ -31,11 +31,21 @@
                         }
                     },
                     selCurrency: {
-                        value:'',
+                        value: '',
                         metadata: {
-                            needObserve: true
+                            needObserve: true,
+                        }
+                    },
+                    isRequired: {
+                        value: 'feikong',
+                        metadata: {
+                            needObserve: true,
+                            required: true,
+                            //readonly: true
                         }
                     }
+
+
                 },
                 methods: {
                     method1: function () {

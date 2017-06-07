@@ -1,18 +1,18 @@
 ﻿define(function () {
-    ko.validation.init({
-        registerExtenders: true,
-        messagesOnModified: true,
-        insertMessages: true,
-        parseInputAttributes: true,
-        messageTemplate: null
-    }, true);
+    //ko.validation.init({
+    //    registerExtenders: true,
+    //    messagesOnModified: true,
+    //    insertMessages: true,
+    //    parseInputAttributes: true,
+    //    messageTemplate: null
+    //}, true);
 
     ko.extenders.logChange = function (target, option) {
         target.subscribe(function (newValue) {
             console.log("========================");
             console.log(option);
             //console.log(target());
-            OnValueChanged(option, target, newValue);
+            //OnValueChanged(option, target, newValue);
         });
         return target;
     };
@@ -36,18 +36,6 @@
         return computed;
     };
 
-    //
-    ko.subscribable.fn.cusFormat = function (format) {
-        var target = this;
-        var formatValue = target();
-        target.subscribe(function () {
-            target = ko.computed(function () {
-                target(format(formatValue));
-            })
-        });
-        return target;
-    };
-
     //read and write
     ko.subscribable.fn.rw = function (target, read, write) {
         var field = this;
@@ -63,7 +51,7 @@
             //             此处当你定义的绑定被第一次应用于一个元素上时会被调用       
             //         在这设置任意初始化程序、事件处理程序 
 
-            
+
 
         }, update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
             var value = valueAccessor();
@@ -77,7 +65,7 @@
                 console.log(value() + "===============" + v);
             });
 
-            console.log(value() +"==============="+ targetValue());
+            console.log(value() + "===============" + targetValue());
         }
     };
 
@@ -99,17 +87,14 @@
                     if (fieldValue.hasOwnProperty('metadata')) {
                         var objmd = fieldValue.metadata;
                         var ext = {};  //ko扩展
-                        // rule   ko扩展
-                        if (objmd.hasOwnProperty('rule')) {
-                            var rules = Object.keys(objmd.rule);
-                            for (var key in rules) {
-                                switch (rules[key]) {
-                                    case 'required': ext.required = objmd.rule[rules[key]]; break;
-                                    case 'readonly': ext.readonly = objmd.rule[rules[key]]; break;
-                                }
-                            }
-                            ext.logChange = { root: local, path: field };
+                        if (objmd.hasOwnProperty('required')) {
+                            ext.required = objmd.required;
                         }
+                        if (objmd.hasOwnProperty('readonly')) {
+                            ext.readonly = objmd.readonly;
+                        }
+
+                        ext.logChange = { root: local, path: field };
 
                         //字段是否需要 observable
                         if (fieldValue.metadata.needObserve) {

@@ -16,7 +16,10 @@
                     '备选币种': {
                         value: [{}, {}],
                         metadata: {
-                            needObserve: true
+                            needObserve: true,
+
+                            url:'',
+                            
                         }
                     },
                     '选中币种': {
@@ -35,12 +38,19 @@
                         }
                     },
 
+
+
+                    oncomposecomplit:function(){
+                        this.BirthDate.value(abc);
+                    }
                     //    test: {
                     //value: 'Hello World!',
                     //metadata: {
                     //    needObserve: true,
                     //    maskInput: dic.account,
                     //}
+
+
                 }
 
             })
