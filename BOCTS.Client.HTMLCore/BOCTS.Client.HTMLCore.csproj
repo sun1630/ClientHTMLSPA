@@ -26,6 +26,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\fieldType.js" />
     <Content Include="Config\client.js" />
     <Content Include="Config\config.js" />
     <Content Include="Config\data.js" />
@@ -82,6 +83,10 @@
     <Content Include="Scenarios\center\CS1016\16_1.html" />
     <Content Include="Scenarios\center\CS1016\16_1.js" />
     <Content Include="Scenarios\center\CS1016\res\zh-cn.js" />
+    <Content Include="Scenarios\center\CS9999\CS9999.js" />
+    <Content Include="Scenarios\center\CS9999\CS9999_1.html" />
+    <Content Include="Scenarios\center\CS9999\CS9999_1.js" />
+    <Content Include="Scenarios\center\CS9999\res\zh-cn.js" />
     <Content Include="Scenarios\center\CS1015\CS1015.js" />
     <Content Include="Scenarios\center\CS1015\CS1015_1.html" />
     <Content Include="Scenarios\center\CS1015\CS1015_1.js" />
@@ -149,6 +154,7 @@
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\udl\share.js" />
     <Content Include="Scripts\udl\vmProvider.js" />
     <Content Include="Scripts\widgets\maskInput.js" />
     <Content Include="Scripts\widgets\popupSelect.js" />
