@@ -37,6 +37,11 @@ namespace BOCTS.Client
 
         [Import("WebBrowserService", typeof(IWebBrowserService))]
         Lazy<IWebBrowserService> WebBrowserService { get; set; }
+
+        [Import("AuthorizationService", typeof(IAuthorizationService))]
+        Lazy<IAuthorizationService> AuthorizationService { get; set; }
+
+
         [Import]
         ShellViewModel ShellViewModel
         {
@@ -57,6 +62,7 @@ namespace BOCTS.Client
 
             //Utilities.TryGetInstance<IWebBrowserService>("WebBrowserService").CreateWebBroser();
             WebBrowserService.Value.CreateWebBroser();
+            AuthorizationService.Value.Show();
         }
     }
 }

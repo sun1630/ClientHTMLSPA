@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOCTS.Client", "BOCTS.Client\BOCTS.Client.csproj", "{842D2624-0F62-4FED-9899-80D2609DAF60}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOCTS.Client.HTMLCore", "BOCTS.Client.HTMLCore\BOCTS.Client.HTMLCore.csproj", "{4F132843-C7A6-476C-A706-F6F12B632F49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages", "Packages\Packages.csproj", "{782E10A3-AF72-45A6-93AB-15DDC5740562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOCTS.Client.Controls.Authorization", "BOCTS.Client.Controls.Authorization\BOCTS.Client.Controls.Authorization.csproj", "{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{782E10A3-AF72-45A6-93AB-15DDC5740562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{782E10A3-AF72-45A6-93AB-15DDC5740562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{782E10A3-AF72-45A6-93AB-15DDC5740562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,5 +77,6 @@ Global
 		{67BF4CAC-5191-481D-93EC-010CB50767C7} = {13F54226-C9E6-4C3B-8C3F-8B4693AF29F0}
 		{D17EED1A-B485-4DBB-9C32-B199033A2F02} = {13F54226-C9E6-4C3B-8C3F-8B4693AF29F0}
 		{239A2F0D-610D-4445-B4BB-8B15A10D33F2} = {2C6F294F-EC47-4C38-91ED-217AA9905679}
+		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE} = {13F54226-C9E6-4C3B-8C3F-8B4693AF29F0}
 	EndGlobalSection
 EndGlobal
