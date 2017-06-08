@@ -1,6 +1,6 @@
 ﻿define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionManager',
     'widgets/popupSelect', 'widgets/maskInput', 'jsRuntime/workflowManager',
-     'jsRuntime/utility', 'udl/vmProvider'
+     'jsRuntime/utility',  'udl/vmProvider',
 ],
     function (pm, rm, am, popupSelect, maskInputs, wm, utility, vmp) {
         var m = function (cx) {
@@ -14,6 +14,27 @@
                     //instanceid: cx.instanceId,
                     //tabId: cx.tabId,
                     //share: share,
+                    //amountAutoRefresh:{
+
+                    //    value: '',
+                    //    metaData: {
+                    //        needTimer : {interval : 10},
+                    //        life : page，Transaction
+                    //        onTimer : function(target) {
+
+                    //            var newValue = '';
+
+                    //            target.value(value);
+
+                    //        }
+
+
+                    //    }
+
+
+                    //}
+
+
 
                     amount: {
                         value: 1000,
@@ -24,8 +45,9 @@
 
                             inputMask: "YYYY-MM-DD",
                             inputComlplete: {
-                                //required: { params: true, message: "密码不能为空" },
+                                //required: { params: true, message: "必填" },
                                 //max: { params: 5, message: '最大值为5' },
+                                //pattern: { params: '^[0-9]+\.{0,1}[0-9]{0,3}$', message: 'guifan' }
                                 //readonly: true,
                             },
                             format: function (target, value) {
@@ -57,7 +79,7 @@
                 methods: {
 
                 }
-            })
+            }, cx)
 
             return model;
         };

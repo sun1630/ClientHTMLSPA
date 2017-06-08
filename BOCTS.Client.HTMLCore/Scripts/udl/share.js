@@ -1,26 +1,30 @@
 ﻿define(['udl/vmProvider'], function (vmp) {
 
-    var model = new vmp({
-        data: {
-            system: {
-                value: {},
-                metadata: {
-                    needObserve: true,
-                }
-            },
-            teller: {
-                value: {},
-                metadata: {
-                    needObserve: true,
-                }
-            },
-            trans: {
+    //var model = new vmp({
+    //    data: {
+    //        system: {
+    //            value: {},
+    //            metadata: {
+    //                needObserve: true,
+    //            }
+    //        },
+    //        teller: {
+    //            value: {},
+    //            metadata: {
+    //                needObserve: true,
+    //            }
+    //        },
+    //        trans: {
 
-            }
-        }
-    });
+    //        }
+    //    }
+    //});
 
-    return model;
+    //return model;
+
+    return {
+        trans: {}
+    }
 
 
     //return {

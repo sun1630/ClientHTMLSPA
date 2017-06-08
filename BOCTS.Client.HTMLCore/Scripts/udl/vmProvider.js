@@ -86,7 +86,7 @@
 
     }
 
-    return function (opt, args) {
+    return function (opt, cx) {
 
         var local = function () {
             var viewModel = {};
@@ -100,23 +100,27 @@
                 if (fieldValue instanceof Object) {
                     //验证字段是否包含 matedata 
                     if (fieldValue.hasOwnProperty('metadata')) {
-                        var objmd = fieldValue.metadata;
-                        var ext = {};  //ko扩展
-                        if (objmd.hasOwnProperty('inputComlplete')) {
-                            ext = objmd.inputComlplete;
-                        }
-                        ext.logChange = { root: local, path: field };
+                        //trans中字段是否已存在
+                        if (!cx.shareTrans.hasOwnProperty(field)) {
+                            var objmd = fieldValue.metadata;
+                            var ext = {};  //ko扩展
+                            if (objmd.hasOwnProperty('inputComlplete')) {
+                                ext = objmd.inputComlplete;
+                            }
+                            ext.logChange = { root: local, path: field };
 
-                        if (fieldValue.metadata.needObserve) {
-                            viewModel[field] = {
-                                value: ko.observable(fieldValue.value).extend(ext),
-                            };
-                        } else {
-                            viewModel[field] = fieldValue;
+                            if (fieldValue.metadata.needObserve) {
+                                viewModel[field] = {
+                                    value: fieldValue.value instanceof Array ? ko.observableArray(fieldValue.value) : ko.observable(fieldValue.value).extend(ext),
+                                };
+                            } else {
+                                viewModel[field] = fieldValue;
+                            }
                         }
                     } else {
                         viewModel[field] = fieldValue;
                     }
+
                 } else {
                     viewModel[field] = fieldValue;
                 }
@@ -146,6 +150,35 @@
 
                             });
                         }
+
+                        //marge 
+                        if (!cx.shareTrans.hasOwnProperty(field)) {
+                            Object.defineProperty(cx.shareTrans, field, {
+                                value: viewModel[field],
+                                configurable: true,
+                                writable: true,
+                                enumerable: true
+                            });
+                        }
+                        //if (share.trans[cx.instanceId] instanceof Object) {
+                        //    if (!share.trans[cx.instanceId].hasOwnProperty(field)) {
+
+                        //    }
+                        //} else {
+                        //    Object.defineProperty(share.trans, cx.instanceId, {
+                        //        value: {},
+                        //        configurable: true,
+                        //        writable: true,
+                        //        enumerable: true
+                        //    });
+
+                        //    Object.defineProperty(share.trans[cx.instanceId], field, {
+                        //        value: viewModel[field],
+                        //        configurable: true,
+                        //        writable: true,
+                        //        enumerable: true
+                        //    });
+                        //}
                     }
                 }
             }

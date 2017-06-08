@@ -1,7 +1,8 @@
 ﻿define(['durandal/system', 'knockout', 'jsRuntime/dataManager', 'jsRuntime/workflowManager',
     'durandal/app', 'plugins/dialog', 'jsRuntime/resourceManager', 'jsRuntime/utility',
-    'jsRuntime/eventAggregator', 'jsRuntime/configManager', 'jsRuntime/styleManager', 'jsRuntime/actionManager', 'udl/vmProvider'],
-    function (system, ko, dm, wm, app, dialog, rm, utility, evtAggtor, cm, styleManager, am, vmp) {
+    'jsRuntime/eventAggregator', 'jsRuntime/configManager', 'jsRuntime/styleManager', 'jsRuntime/actionManager',
+    'udl/share', 'udl/vmProvider'],
+    function (system, ko, dm, wm, app, dialog, rm, utility, evtAggtor, cm, styleManager, am, share, vmp) {
         var viewAreas = {};
         var vm = {
             //页面Tab显示区域 格式{ 'tabId': guid, 'tabName': '', runWfInstance: wfinstance, "tabArea": ko.observable() };
@@ -323,7 +324,7 @@
                 var wfOutput = _vmContext.showData;
                 var viewState = _vmContext.viewState;
                 var wfinstanceId = _vmContext.instanceId;
-                
+
                 if (!_vmContext.isTab)
                     if (!vm.isViewAreaRegistered(viewAreaName)) {
                         throw new Error('viewArea ' + viewAreaName + ' is not registered');
@@ -346,6 +347,11 @@
                                     dm.mergeValue(wfinstanceId, wfOutput);
                                 }
 
+
+                                if (!share.trans.hasOwnProperty(wfinstanceId)) {
+                                    Object.defineProperty(share.trans, wfinstanceId, { value: {} })
+                                }
+
                                 var cx = {
                                     instanceId: wfinstanceId,
                                     currentViewArea: viewAreaName,
@@ -353,8 +359,11 @@
                                     tabId: _vmContext.tabId,
                                     rm: rm.instance[wfinstanceId],
                                     wm: wm.instance[wfinstanceId],
-                                    dm: dm.instance[wfinstanceId]
+                                    dm: dm.instance[wfinstanceId],
+                                    shareTrans: share.trans[wfinstanceId]
                                 };
+
+
 
                                 if (system.isFunction(module)) {
                                     model = new module(cx);
@@ -406,9 +415,9 @@
                                     model.cx["wm"].currentVmInstanceId = model.__vmInstanceId__;
                                 }
 
-                                setTimeout( function () {
+                                setTimeout(function () {
                                     $(".tabsInput").removeAttr("disabled")
-                                },1000);
+                                }, 1000);
                             }
 
                             if (_vmContext.isDialog != null && _vmContext.isDialog) {
@@ -419,7 +428,7 @@
 
                                 model['viewUrl'] = modelId + '.html';
                                 dialog.show(model, null, viewAreaName || 'default').then(function (result) {
-                                    
+
                                 }).fail(function (data) {
                                     dfd.resolve();
                                 });
@@ -447,14 +456,13 @@
                                         'wfId': _vmContext.instanceId
                                     };
 
-                                    
+
 
                                     if (!_vmContext.isTab)
                                         viewAreas[viewAreaName](mvConfig);
                                     else {
                                         var tabs = vm.getTabInstance(_vmContext.tabId);
-                                        if (tabs.length != 0)
-                                        {
+                                        if (tabs.length != 0) {
                                             tabs[0].tabArea(mvConfig);
                                         }
                                         else {
@@ -593,7 +601,7 @@
             },
 
             //显示堆栈ViewModel
-            showStack: function (viewModel, viewAreaName,tabId) {
+            showStack: function (viewModel, viewAreaName, tabId) {
                 var modelId = viewModel.__modelId__;
 
                 if (tabId != null) {
