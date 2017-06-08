@@ -2,6 +2,19 @@
     'durandal/app', 'plugins/dialog', 'jsRuntime/resourceManager', 'jsRuntime/utility',
     'jsRuntime/eventAggregator', 'jsRuntime/configManager', 'jsRuntime/styleManager', 'jsRuntime/actionManager', 'udl/vmProvider'],
     function (system, ko, dm, wm, app, dialog, rm, utility, evtAggtor, cm, styleManager, am, vmp) {
+        function log() {
+            console.log(arguments);
+        };
+        function registerTabArea(wfInstanceId, config) {
+            var count = vm.tabViewAreas().length;
+            for (var i = 0; i < count; i++) {
+                var tab = vm.tabViewAreas()[i];
+                if (tab.wfInstanceId === wfInstanceId) {
+                    tab.tabArea(config);
+                    break;
+                }
+            }
+        };
         var viewAreas = {};
         var vm = {
             //页面Tab显示区域 格式{ 'tabId': guid, 'tabName': '', runWfInstance: wfinstance, "tabArea": ko.observable() };
@@ -323,7 +336,7 @@
                 var wfOutput = _vmContext.showData;
                 var viewState = _vmContext.viewState;
                 var wfinstanceId = _vmContext.instanceId;
-                
+
                 if (!_vmContext.isTab)
                     if (!vm.isViewAreaRegistered(viewAreaName)) {
                         throw new Error('viewArea ' + viewAreaName + ' is not registered');
@@ -406,9 +419,9 @@
                                     model.cx["wm"].currentVmInstanceId = model.__vmInstanceId__;
                                 }
 
-                                setTimeout( function () {
+                                setTimeout(function () {
                                     $(".tabsInput").removeAttr("disabled")
-                                },1000);
+                                }, 1000);
                             }
 
                             if (_vmContext.isDialog != null && _vmContext.isDialog) {
@@ -419,7 +432,7 @@
 
                                 model['viewUrl'] = modelId + '.html';
                                 dialog.show(model, null, viewAreaName || 'default').then(function (result) {
-                                    
+
                                 }).fail(function (data) {
                                     dfd.resolve();
                                 });
@@ -447,14 +460,13 @@
                                         'wfId': _vmContext.instanceId
                                     };
 
-                                    
+
 
                                     if (!_vmContext.isTab)
                                         viewAreas[viewAreaName](mvConfig);
                                     else {
                                         var tabs = vm.getTabInstance(_vmContext.tabId);
-                                        if (tabs.length != 0)
-                                        {
+                                        if (tabs.length != 0) {
                                             tabs[0].tabArea(mvConfig);
                                         }
                                         else {
@@ -471,7 +483,49 @@
                         });
                 }).promise();
             },
+            show2: function (vmContext) {
+                var _vmContext = {
+                    page: null,         //page：页面modelID;
+                    instanceId: null,   //instanceId：工作流实例ID
+                    activityInstanceId: null,//activityInstanceId：工作流当前活动实例ID
+                    owner: null,        //owner:硬件回传参数
+                    isDialog: false,    //isDialog：是否显示为对话框
+                    flowId: null,        //交易场景号：如"CS1010"
+                    isTab: false,
+                    tabId: null,
+                };
+                $.extend(_vmContext, vmContext);
+                function acquirePage(context) {
+                    return system.defer(function (defer) {
+                        system.acquire(context.page).then(function (module) {
+                            defer.resolve(module);
+                        }).fail(function () {
+                            if (!context.__errorCount || context.__errorCount == 0) {
+                                context.page = "Shells/UnFound";
+                                context.__errorCount = 1;
+                                acquirePage(context);
+                            }
+                            else
+                                defer.reject();
+                        });
+                    });
+                }
+                return system.defer(function (dfd) {
+                    acquirePage(_vmContext).then(function (module) {
+                        var vmodel = new vmp(module);
 
+                        vmodel.__wfinstanceId__ = _vmContext.instanceId;
+                        vmodel.__activityInstanceId__ = _vmContext.activityInstanceId;
+                        vmodel.__flowId__ = _vmContext.flowId;
+                        vmodel.__isDialog__ = _vmContext.isDialog;
+                        vmodel.__vmInstanceId__ = system.guid();
+                        var tabArea = { model: vmodel, view: _vmContext.page + ".html" };
+                        registerTabArea(_vmContext.instanceId, tabArea);
+                    }).fail(function () {
+                        log("page " + _vmContext.page + " not found.");
+                    });
+                }).promise();
+            },
             //工作流Show对话框页面
             showDialog: function (vmContext) {
                 var _vmContext = {
@@ -593,7 +647,7 @@
             },
 
             //显示堆栈ViewModel
-            showStack: function (viewModel, viewAreaName,tabId) {
+            showStack: function (viewModel, viewAreaName, tabId) {
                 var modelId = viewModel.__modelId__;
 
                 if (tabId != null) {

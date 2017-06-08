@@ -53,7 +53,7 @@
         }
         if (inputs.ShowType.toLowerCase() == 'normal')
             if (!inputs.IsSync)
-                vm.show(pageContext)
+                vm.show2(pageContext)
                     .done(function (ret) {
                         if (ret) {
                             context.Outputs['Result'] = ret;
