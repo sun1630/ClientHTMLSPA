@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BOCTS.Client.Controls.Authorization">
+
+    <Style TargetType="Grid" x:Key="grid_style">
+        <!--<Setter Property="Background" Value="AliceBlue"></Setter>-->
+    </Style>
+
+    <Style TargetType="ListView" x:Key="listview_style">
+        <!--<Setter Property="Background" Value="AliceBlue"></Setter>
+        <Setter Property="BorderBrush" Value="AliceBlue"></Setter>-->
+    </Style>
+</ResourceDictionary>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,18 @@ namespace BOCTS.Client.Controls.Authorization
     {
         public QueueWindow()
         {
+            
             InitializeComponent();
+            
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            string datafilepath = @"D:\Work\ClientHTMLSPA\BOCTS.Client.Controls.Authorization\json_template.json";
+            string jsonstr = System.IO.File.ReadAllText(datafilepath, Encoding.UTF8);
+            //var x =(JObject)JsonConvert.DeserializeObject();
+            Rootobject dataobj = Newtonsoft.Json.JsonConvert.DeserializeObject<Rootobject>(jsonstr);
+            m_datagrid.DataContext  = dataobj;
         }
     }
 }

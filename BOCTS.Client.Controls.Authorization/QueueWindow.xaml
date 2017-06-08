@@ -5,9 +5,41 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BOCTS.Client.Controls.Authorization"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Background="AliceBlue">
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="31,26,0,0" VerticalAlignment="Top" Width="75"/>
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Style="{DynamicResource grid_style}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="129*"/>
+            <RowDefinition Height="140*"/>
+        </Grid.RowDefinitions>
+        <Button Content='TTT' HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Height="20" Width="75" Grid.Row="0"/>
+        <DataGrid x:Name="m_datagrid"  
+                  ItemsSource="{Binding Path=Items}"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  RowHeaderWidth="0"
+                  AutoGenerateColumns="False" Margin="0,30,0,0" Grid.RowSpan="3" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="10*" Header="AAA" Binding="{Binding colum1}"/>
+                <DataGridTemplateColumn Width="20*" Header="BBB"  IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=colum2}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid> 
 
     </Grid>
+
+
+
 </UserControl>
