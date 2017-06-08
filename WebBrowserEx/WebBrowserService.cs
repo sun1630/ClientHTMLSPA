@@ -11,7 +11,7 @@ using System.Xml.Linq;
 namespace BOC.UOP.Controls.WebBrowserEx
 {
     [Export("WebBrowserService",typeof(IWebBrowserService))]
-   public class WebBrowserService:IWebBrowserService
+   public partial class WebBrowserService:IWebBrowserService
     {
         [Import("WindowService", typeof(IWindowService))]
         Lazy<IWindowService> WindowService { get; set; }
@@ -22,7 +22,7 @@ namespace BOC.UOP.Controls.WebBrowserEx
         { }
         public void Initial()
         { }
-      public void CreateWebBroser()
+        public void CreateWebBrowser()
         {
             var wc = new WebBrowserControl();
             wc.ScriptErrorsSuppressed = Utility.ScriptErrorsSuppressed;
@@ -50,6 +50,11 @@ namespace BOC.UOP.Controls.WebBrowserEx
             }
 
             WindowService.Value.Dock(wc, AnchorableShowStrategy.Most);
+
+            //add by Xiyue Yu 
+            this
+                ._webBrowsersManager["default"] = wc;
+                
         }
     }
 }

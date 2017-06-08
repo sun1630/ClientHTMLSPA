@@ -94,6 +94,7 @@
     <Compile Include="Com\ComDockWindow.cs" />
     <Compile Include="Com\ComWindow.cs" />
     <Compile Include="Com\ComWindowBase.cs" />
+    <Compile Include="Com\ScriptConnector.Partial.01.cs" />
     <Compile Include="Com\ScriptConnector.cs" />
     <Compile Include="Controls\ActiveXContainer.cs" />
     <Compile Include="Controls\ActiveXHelper.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="WebBrowserControl.cs" />
     <Compile Include="WebBrowserExModule.cs" />
+    <Compile Include="WebBrowserService.Partal.01.cs" />
     <Compile Include="WebBrowserService.cs" />
     <Compile Include="Win32\HandleCollector.cs" />
     <Compile Include="Win32\NativeMethods.cs" />

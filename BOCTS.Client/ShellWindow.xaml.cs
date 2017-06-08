@@ -56,7 +56,10 @@ namespace BOCTS.Client
            WindowService.Value.Initial();
 
             //Utilities.TryGetInstance<IWebBrowserService>("WebBrowserService").CreateWebBroser();
-            WebBrowserService.Value.CreateWebBroser();
+            WebBrowserService.Value.CreateWebBrowser();
+
+            
+
         }
     }
 }

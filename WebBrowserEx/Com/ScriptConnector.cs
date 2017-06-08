@@ -11,7 +11,7 @@ using System.Windows;
 namespace BOC.UOP.Controls.WebBrowserEx.Com
 {
     [ComVisible(true)]
-    public class ScriptConnector
+    public partial class ScriptConnector
     {
         private WebBrowserControl _WebBrowserEx;
         public ActivextConnector ActivextConnector { get; private set; }

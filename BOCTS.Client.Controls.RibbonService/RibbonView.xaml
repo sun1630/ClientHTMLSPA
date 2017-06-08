@@ -19,6 +19,15 @@
          <Fluent:RibbonGroupBox Header="WebBrowser" Width="120">
             <Fluent:Button Header="打开"  Icon="Images\LargeIcon.png" LargeIcon="Images\LargeIcon.png" Click="Button_Click" />
         </Fluent:RibbonGroupBox>
+
+
+        <Fluent:RibbonGroupBox Header="C# call Js Test" Width="120">
+            <Fluent:Button Header="C# call Js Test"  Icon="Images\LargeIcon.png" LargeIcon="Images\LargeIcon.png" Click="Button2_Click" />
+            
+         
+            
+        </Fluent:RibbonGroupBox>
+
     </Fluent:RibbonTabItem>
     
 </Fluent:Ribbon>

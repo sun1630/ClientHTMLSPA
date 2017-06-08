@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOC.UOP.Controls.WebBrowserEx;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace BOCTS.Client.FrameWork
    public interface IWebBrowserService
     {
         void Initial();
-        void CreateWebBrowser();
+        WebBrowserControl CreateWebBrowser();
     }
 }

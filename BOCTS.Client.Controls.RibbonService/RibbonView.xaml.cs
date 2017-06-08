@@ -46,9 +46,12 @@ namespace BOCTS.Client.Controls.RibbonService
             Application.Current.Shutdown();
         }
 
+        private Dictionary<string, IWebBrowserService> _webBrowsersManager = new Dictionary<string, IWebBrowserService>();
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Utilities.TryGetInstance<IWebBrowserService>("WebBrowserService").CreateWebBroser();
+            Utilities.TryGetInstance<IWebBrowserService>("WebBrowserService").CreateWebBrowser();
         }
     }
 }
