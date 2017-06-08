@@ -25,14 +25,14 @@
                 }),
                 'CallSubFlowActivity1': wfjs.Activity({
                     activity: new CallSubFlowActivity(),
-                    $inputs: { SubChartName: '"CS1015/CS1015-2"', },
+                    $inputs: { SubChartName: '"CS1015/CS1015_2"', },
                     $outputs: { '*': '*' },
                     next: 'showName'
                 }),
                 'showName': wfjs.Activity({
                     activity: new showScreen(),
                     $inputs: {
-                        Page: '"Scenarios/center/CS1015/CS1015_3"',
+                        Page: '"Scenarios/center/CS1015/CS1015_2"',
                         ShowType: '"normal"',//normal model
                         //PageTimeOut: 10,     //int型 设置页面超时时间
                         //DialogTimeOut: 10,   //int型 设置页面超时后对话框超时时间

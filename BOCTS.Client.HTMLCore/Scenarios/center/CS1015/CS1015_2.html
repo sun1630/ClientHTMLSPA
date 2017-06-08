@@ -1,0 +1,11 @@
+﻿<p>share Trans 数据</p>
+<p>
+    amount:  <span data-bind="text:shareTrans.amount.value"></span>
+</p>
+<p>
+    更新 amount:<input type="text" data-bind="value:shareTrans.amount.value" />
+</p>
+<p>
+    <span data-bind="text:instanceid"></span>
+   <button type="button" data-bind="click:cx.wm.jumpto.bind($data,-1,instanceid),text:cx.rm.button.pre">上一步</button>
+</p>
