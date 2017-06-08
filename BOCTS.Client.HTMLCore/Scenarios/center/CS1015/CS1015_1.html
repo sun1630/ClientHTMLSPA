@@ -27,7 +27,7 @@
     更新后的值：<input type="text" data-bind="value:newRw.value" />
     <button type="button" data-bind="click:btnUpdateRw">更新</button>
 </p>-->
-
+<span data-bind="text:rate.value"></span>
 <p>
     <select data-bind="options: currencys.value,
                        optionsText: 'value',
@@ -47,6 +47,15 @@
 </p>
 <p>
     maskInput掩码值：<span data-bind="text:amount.inputMask"></span>
+</p>
+
+
+<h3>验证多文化</h3>
+<p>
+    <span data-bind="text:birthdate2.inputMask().type"></span>
+</p>
+<p>
+    <span data-bind="text:birthdate2.inputMask().maskValue"></span>
 </p>
 
 

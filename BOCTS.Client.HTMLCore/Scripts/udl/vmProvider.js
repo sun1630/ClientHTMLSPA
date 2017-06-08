@@ -1,11 +1,4 @@
 ﻿define(function () {
-    //ko.validation.init({
-    //    registerExtenders: true,
-    //    messagesOnModified: true,
-    //    insertMessages: true,
-    //    parseInputAttributes: true,
-    //    messageTemplate: null
-    //}, true);
 
     ko.extenders.logChange = function (target, option) {
         target.subscribe(function (newValue) {
@@ -35,16 +28,6 @@
         computed.canWrite = ko.observable(!readonly);
         return computed;
     };
-
-    //read and write
-    ko.subscribable.fn.rw = function (target, read, write) {
-        var field = this;
-        field = ko.computed({
-            // return "111";
-            read: read(target),
-            //write: write(target, field())
-        })
-    }
 
     ko.bindingHandlers.coutomValidate = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
@@ -80,11 +63,6 @@
             //console.log(value() + "===============" + targetValue());
         }
     };
-
-    //检查字段在target是否存在
-    function checkField(target, field, fieldValue) {
-
-    }
 
     return function (opt, cx) {
 
@@ -136,18 +114,19 @@
                     if (fieldValue.hasOwnProperty('metadata')) {
                         var objmd = fieldValue.metadata;
                         if (objmd.hasOwnProperty('inputMask')) {
-                            viewModel[field].inputMask = ko.observable(objmd.inputMask);
+                            var inputMaskObj = objmd.inputMask;
+                            if (inputMaskObj instanceof Object) {
+                                viewModel[field].inputMask = ko.observable(inputMaskObj.inputMask);
+                            } else {
+                                viewModel[field].inputMask = ko.observable(inputMaskObj);
+                            }
                         }
+
                         if (objmd.hasOwnProperty('format')) {
                             var fld = field;
                             var fmtObj = objmd;
                             viewModel[fld].format = ko.computed(function () {
-
-                                console.log(viewModel[fld].value());
-                                console.log(fld);
-                                // return parseFloat(viewModel[fld].value()) * 11;
                                 return fmtObj.format(viewModel, viewModel[fld].value());
-
                             });
                         }
 
@@ -160,25 +139,7 @@
                                 enumerable: true
                             });
                         }
-                        //if (share.trans[cx.instanceId] instanceof Object) {
-                        //    if (!share.trans[cx.instanceId].hasOwnProperty(field)) {
 
-                        //    }
-                        //} else {
-                        //    Object.defineProperty(share.trans, cx.instanceId, {
-                        //        value: {},
-                        //        configurable: true,
-                        //        writable: true,
-                        //        enumerable: true
-                        //    });
-
-                        //    Object.defineProperty(share.trans[cx.instanceId], field, {
-                        //        value: viewModel[field],
-                        //        configurable: true,
-                        //        writable: true,
-                        //        enumerable: true
-                        //    });
-                        //}
                     }
                 }
             }

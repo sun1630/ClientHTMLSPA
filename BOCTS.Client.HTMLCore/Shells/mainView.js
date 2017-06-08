@@ -21,6 +21,9 @@
             startFlow: function (flowid, para) {
                 m.wm.startFlow(flowid, para);
             },
+            startFlow2: function (flowid, para) {
+                m.wm.startFlow2(flowid, para);
+            },
             afterEvent: function (elements, data) {
                 console.debug("eventId:" + data.tabId);
                 //注测当前TabDialog

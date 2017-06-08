@@ -18,7 +18,7 @@ requirejs.config({
         'knockvalidation': 'Scripts/knockout.validation',
         'jsRuntime': 'Scripts/jsRuntime',
         'widgets': 'Scripts/widgets',
-        'udl': 'Scripts/udl'
+        'udl': 'Scripts/udl',
     },
     shim: {
     }

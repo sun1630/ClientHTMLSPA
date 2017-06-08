@@ -18,7 +18,96 @@ define(['durandal/system', 'durandal/app', 'jsRuntime/dataManager', 'jsRuntime/r
             }).promise();
         };
 
+        function getOrCreateTab(vm, wfInstanceId) {
+            for (var tab in vm.tabViewAreas()) {
+                if (tab.wfInstanceId == wfInstanceId)
+                    return tab;
+            }
+            var defaultPage = { model: cm.client.shellsBaseUrl + "waitWf", view: cm.client.shellsBaseUrl + "waitWf.html" };
+            var newTab = {
+                wfInstanceId: wfInstanceId,
+                tabArea: ko.observable(defaultPage),
+                tabId: system.guid(),
+                tabName: ''
+            };
+            vm.tabViewAreas.push(newTab);
+            return newTab;
+        };
+        function runwf(flowId, options) {
+            if (!flowId || flowId == null || flowId == '') {
+                wm.log("when startflow,flowId can't be null");
+                return;
+            }
+            var flowChartPath = 'Scenarios/';
+            var resPath = 'Scenarios/';
 
+            var ids = flowId.split('/');
+            var transNo = ids[ids.length - 1];
+
+            switch (options.startPath) {
+                case cm.client.wfStartPath.center:
+                    flowChartPath += cm.client.defaultCenter + "/" + flowId + "/" + transNo;
+                    resPath += cm.client.defaultCenter + "/" + flowId;
+                    break;
+                case cm.client.wfStartPath.common:
+                    flowChartPath += cm.client.wfStartPath.common + "/" + flowId + "/" + transNo;
+                    resPath += cm.client.wfStartPath.common + "/" + flowId;
+                    break;
+                case cm.client.wfStartPath.branch:
+                    flowChartPath += dm.machine.ProvPrefixNumEHR() + "/" + flowId + "/" + transNo;
+                    resPath += dm.machine.ProvPrefixNumEHR() + "/" + flowId;
+                    break;
+            }
+
+            wm.log("FlowChart Path:" + flowChartPath);
+            getFlowChart(flowChartPath)
+                .done(function (chart) {
+                    if ($.isFunction(chart))
+                        chart = chart();
+
+                    var invokerInstance = wfjs.WorkflowInvoker.CreateActivity(chart);
+                    var wfinstance = new wfInstance(flowId, invokerInstance.InstanceId);
+                    wm.instance[invokerInstance.InstanceId] = wfinstance;
+                    require(['jsRuntime/viewManager'], function (vm) {
+                        var tab = getOrCreateTab(vm, invokerInstance.InstanceId);
+                        rm.registerRes(resPath, invokerInstance.InstanceId).done(function () {
+                            invokerInstance
+                                .Inputs(options.inputs)
+                                .FlowchartSettings({ flowId: flowId, flowChart: flowChartPath, tabId: tab.tabId })
+                                .Invoke(function (err, context) {
+                                    if (err != null) {
+                                        utility.log.error(err);
+                                    }
+
+                                    //清除工作流实例相关数据
+                                    rm.unRegisterRes(invokerInstance.InstanceId);
+                                    dm.unRegisterDm(invokerInstance.InstanceId);
+                                    wm.unRegisterWm(invokerInstance.InstanceId);
+
+                                    //执行回调方法
+                                    if (options.onFinishing != null && $.isFunction(options.onFinishing)) {
+                                        wm.log("WfEnd:Run onFinishing function");
+                                        options.onFinishing({});
+                                    }
+                                    wm.log("WfEnd:flowId：" + flowId + " wfinstanceid:" + invokerInstance.InstanceId);
+
+                                    //出栈
+                                    if (!options.isBackground) {
+                                        if (options.tabId != null)
+                                            wm.popFlow(options);
+                                        else//支持SATM
+                                            wm.popFlow();
+                                    }
+
+                                    context.ClearFlowchartSettings();
+                                });
+                        }).fail(function (err) {
+                            wm.log("register resource error:" + JSON.stringify(err));
+                        });
+                    });
+
+                })
+        };
         //工作流实例
         //参数flowId、 wfInstanceId工作流实例ID、viewArea显示区域
         var wfInstance = function (flowId, wfInstanceId, viewArea) {
@@ -119,24 +208,24 @@ define(['durandal/system', 'durandal/app', 'jsRuntime/dataManager', 'jsRuntime/r
                 }
             },
 
-            //返回流程
-            this.jumpto = function (actName) {
-                require(['jsRuntime/actionManager'], function (am) {
-                    var instanceId = self.wfInstanceId
+                //返回流程
+                this.jumpto = function (actName) {
+                    require(['jsRuntime/actionManager'], function (am) {
+                        var instanceId = self.wfInstanceId
 
-                    wfjs.WorkflowInvoker.Instance[instanceId].Jumpto(actName);
-                    am.global.showMaskLayer(self.tabId);
+                        wfjs.WorkflowInvoker.Instance[instanceId].Jumpto(actName);
+                        am.global.showMaskLayer(self.tabId);
 
-                    if (self.collectData) {
-                        dialog.close(self.currentViewModel, self.collectData);
-                        self.dfd.resolve(self.collectData);
-                    }
-                    else {
-                        dialog.close(self.currentViewModel);
-                        self.dfd.resolve();
-                    }
-                });
-            }
+                        if (self.collectData) {
+                            dialog.close(self.currentViewModel, self.collectData);
+                            self.dfd.resolve(self.collectData);
+                        }
+                        else {
+                            dialog.close(self.currentViewModel);
+                            self.dfd.resolve();
+                        }
+                    });
+                }
 
             //结束流程
             this.terminate = function (wfInstanceId) {
@@ -226,6 +315,21 @@ define(['durandal/system', 'durandal/app', 'jsRuntime/dataManager', 'jsRuntime/r
                             }
                         });
                     }
+                },
+                startFlow2: function (flowId, options) {
+                    var _options = {
+                        inputs: {},
+                        isBackground: false,
+                        transTitle: '',
+                        startPath: 'center',
+                        wfInstanceId: '',
+                        isTab: true,
+                        tabId: '',
+                    };
+                    $.extend(_options, options);
+                    //wm.runWf(flowId, _options);
+
+                    runwf(flowId, _options);
                 }
             },
 
@@ -329,7 +433,7 @@ define(['durandal/system', 'durandal/app', 'jsRuntime/dataManager', 'jsRuntime/r
 
                                     //出栈
                                     if (!_parameter.isBackground) {
-                                        if(_parameter.tabId!=null)
+                                        if (_parameter.tabId != null)
                                             wm.popFlow(_parameter);
                                         else//支持SATM
                                             wm.popFlow();
@@ -341,9 +445,9 @@ define(['durandal/system', 'durandal/app', 'jsRuntime/dataManager', 'jsRuntime/r
                             wm.log("register resource error:" + JSON.stringify(err));
                         });
                     })
-                .fail(function (err) {
-                    wm.log(err);
-                });
+                    .fail(function (err) {
+                        wm.log(err);
+                    });
             },
 
             //获取Tab实例集合
@@ -364,7 +468,7 @@ define(['durandal/system', 'durandal/app', 'jsRuntime/dataManager', 'jsRuntime/r
                     if (_para.hasOwnProperty("wfpar")) {
                         var _pa = _para.wfpar;
 
-                        var tabs = wm.getTabInstances(_pa); 
+                        var tabs = wm.getTabInstances(_pa);
                         if (tabs.length != 0) {
                             var wfInstance = tabs[0].runWfInstance;
 
