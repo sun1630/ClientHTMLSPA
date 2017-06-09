@@ -93,6 +93,12 @@
     <Content Include="Scenarios\center\CS1015\CS1015_1.html" />
     <Content Include="Scenarios\center\CS1015\CS1015_1.js" />
     <Content Include="Scenarios\center\CS1015\res\zh-cn.js" />
+    <Content Include="Scenarios\center\Majp\A02.html" />
+    <Content Include="Scenarios\center\Majp\A02.js" />
+    <Content Include="Scenarios\center\Majp\A01.html" />
+    <Content Include="Scenarios\center\Majp\A01.js" />
+    <Content Include="Scenarios\center\Majp\Majp.js" />
+    <Content Include="Scenarios\center\Majp\res\zh-cn.js" />
     <Content Include="Scenarios\center\tableView\res\en-us.js" />
     <Content Include="Scenarios\center\tableView\res\zh-cn.js" />
     <Content Include="Scenarios\center\tableView\tableView.js" />
@@ -384,7 +390,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>7495</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
