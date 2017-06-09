@@ -522,13 +522,14 @@
                 }
                 return system.defer(function (dfd) {
                     acquirePage(_vmContext).then(function (module) {
-                        var vmodel = new vmp(module);
+                        var vmodel = new vmp(module, { wfInstanceId: _vmContext.instanceId });
 
                         vmodel.__wfinstanceId__ = _vmContext.instanceId;
                         vmodel.__activityInstanceId__ = _vmContext.activityInstanceId;
                         vmodel.__flowId__ = _vmContext.flowId;
                         vmodel.__isDialog__ = _vmContext.isDialog;
                         vmodel.__vmInstanceId__ = system.guid();
+
                         var tabArea = { model: vmodel, view: _vmContext.page + ".html" };
                         registerTabArea(_vmContext.instanceId, tabArea);
                     }).fail(function () {

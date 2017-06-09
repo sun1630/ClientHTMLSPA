@@ -22,7 +22,7 @@
                 'showName': wfjs.Activity({
                     activity: new showScreen(),
                     $inputs: {
-                        Page: '"Scenarios/center/CS1015/CS1015_4"',
+                        Page: '"Scenarios/center/CS1015/CS1015_5"',
                         ShowType: '"normal"',//normal model
                          },
                     next: 'null'

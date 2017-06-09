@@ -20,7 +20,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                     value: '2017-12-12',
                     metadata: {
                         needObservable: true,
-                        inputMask: cfg.dynamicDate[cx.teller.culture.value()]
+                        dataType: '' 
                     },
                 }
             },

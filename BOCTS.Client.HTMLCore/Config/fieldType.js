@@ -22,12 +22,6 @@
 
         },        //mask 99999999
 
-
-
-
-
-
-
         Digit: "",        //mask 正整数
         DigitChar: "",        //mask
         DigitPara: "",        //?

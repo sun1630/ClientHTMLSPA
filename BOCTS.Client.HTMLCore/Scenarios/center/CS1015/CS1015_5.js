@@ -17,70 +17,37 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                 teller: cx.teller,
                 shareTrans: cx.shareTrans,
 
-                province: {
-                    value: [
-                        {
-                            code: '-1', text: '请选择', child: [
-                                { code: '-1', text: '请选择' },
-                            ]
-                        },
-                        {
-                            code: '001', text: '北京', child: [
-                                { code: '001001', text: '昌平区' },
-                                { code: '001002', text: '海淀区' },
-                                { code: '001003', text: '朝阳区' },
-                                { code: '001004', text: '西城区' },
-                            ]
-                        },
-                        {
-                            code: '002', text: '上海', child: [
-                                { code: '002001', text: '虹口区' },
-                                { code: '002002', text: '黄埔区' },
-                                { code: '002003', text: '浦东新区' },
-                            ]
-                        },
-
-                    ],
+                num1: {
+                    value: 0,
                     metadata: {
                         needObservable: true,
                     }
                 },
-
-                city: {
-                    value: [],
+                rate1: {
+                    value: 5,
                     metadata: {
-                        needObservable: true
+                        needObservable: true,
                     }
                 },
-
-                // 使用事件
-                province1: {
-                    value: pv.province,
+                num2: {
+                    value: 0,
                     metadata: {
-                        needObservable: true
+                        needObservable: true,
                     }
                 },
-                provinceCode: {
+                lastUpdateField: {
                     value: '',
                     metadata: {
-                        needObservable: true
-                    }
-                },
-                city1: {
-                    value: [],
-                    metadata: {
-                        needObservable: true
+                        needObservable: true,
                     }
                 }
             },
             methods: {
-                provinceChange: function () {
-                    var value=this.provinceCode.value();
-
-                    var citys = cty.city.filter(function (arr) {
-                        return arr.parentArea == value;
-                    });
-                    this.city1.value(citys);
+                numchange1: function () {
+                    this.lastUpdateField.value('num1');
+                },
+                numchange2: function () {
+                    this.lastUpdateField.value('num2');
                 }
             }
 
