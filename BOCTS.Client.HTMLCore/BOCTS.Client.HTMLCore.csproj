@@ -157,6 +157,7 @@
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
     <Content Include="Scripts\udl\share.js" />
+    <Content Include="Scripts\udl\Temp.js" />
     <Content Include="Scripts\udl\vmProvider.js" />
     <Content Include="Scripts\widgets\maskInput.js" />
     <Content Include="Scripts\widgets\popupSelect.js" />
