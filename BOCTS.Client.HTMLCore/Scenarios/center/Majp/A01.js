@@ -18,7 +18,7 @@
 
             this.next = function (data) {
                 var _para = {
-                    accountuse: self.accountuse(),
+                    accountNo: self.accountNo(),
                     isFullMask: false,
                     isContinue: true
                 };
