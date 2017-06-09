@@ -3,18 +3,23 @@
   "Senditems": [
     {
       "colum1": "S001",
-      "colum2": "002",
+      "colum2": "0020",
       "colum3": "003"
     },
     {
       "colum1": "S0011",
+      "colum2": "0020",
+      "colum3": "003"
+    },
+    {
+      "colum1": "S0012",
       "colum2": "002",
       "colum3": "003"
     }
   ],
   "Receiveitems": [
     {
-      "colum1": "R001",
+      "colum1": "R0010",
       "colum2": "002",
       "colum3": "003"
     },

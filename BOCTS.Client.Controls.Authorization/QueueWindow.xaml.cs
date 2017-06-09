@@ -31,11 +31,19 @@ namespace BOCTS.Client.Controls.Authorization
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            string datafilepath = @"D:\Work\ClientHTMLSPA\BOCTS.Client.Controls.Authorization\json_template.json";
-            string jsonstr = System.IO.File.ReadAllText(datafilepath, Encoding.UTF8);
-            //var x =(JObject)JsonConvert.DeserializeObject();
-            Rootobject dataobj = Newtonsoft.Json.JsonConvert.DeserializeObject<Rootobject>(jsonstr);
-            m_datagrid.DataContext  = dataobj;
+            this.DataContext = new QueueWindow_Model(this); 
         }
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string datafilepath = @"D:\Work\ClientHTMLSPA\BOCTS.Client.Controls.Authorization\json_template -refresh.json";
+        //    string jsonstr = System.IO.File.ReadAllText(datafilepath, Encoding.UTF8);
+        //    //var x =(JObject)JsonConvert.DeserializeObject();
+        //    Rootobject dataobj = Newtonsoft.Json.JsonConvert.DeserializeObject<Rootobject>(jsonstr);
+
+        //    (this.DataContext as Rootobject).XSenditems = dataobj.XSenditems;
+        //    (this.DataContext as Rootobject).XReceiveitems = dataobj.XReceiveitems;
+        //    MessageBox.Show("Done!");
+        //}
     }
 }

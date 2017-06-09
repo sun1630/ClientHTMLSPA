@@ -19,25 +19,44 @@
             <RowDefinition Height="129*"/>
             <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
-        <Button Content='TTT' HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Height="20" Width="75" Grid.Row="0"/>
-        <DataGrid x:Name="m_datagrid"  
-                  ItemsSource="{Binding Path=Items}"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"
+        <Button Content='我刷' HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Height="20" Width="75" Grid.Row="0"
+                Command="{Binding Path=RefreshCommand}"/>
+        <DataGrid 
+                  ItemsSource='{Binding Path=DataObj.Senditems}'
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  CanUserAddRows="False" VerticalContentAlignment="Top"
                   RowHeaderWidth="0"
-                  AutoGenerateColumns="False" Margin="0,30,0,0" Grid.RowSpan="3" >
+                  AutoGenerateColumns="False" Margin="0,0,0,0" Grid.Row="1" >
             <DataGrid.Columns>
-                <DataGridTextColumn Width="10*" Header="AAA" Binding="{Binding colum1}"/>
-                <DataGridTemplateColumn Width="20*" Header="BBB"  IsReadOnly="True">
+                <DataGridTextColumn Width="10*" Header="已发送交易" Binding="{Binding colum1}"/>
+                <DataGridTextColumn Width="10*" Header="当前状态" Binding="{Binding colum2}"/>
+                <DataGridTemplateColumn Width="10*" Header="备注"  IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Path=colum2}"/>
+                            <TextBlock Text="{Binding Path=colum3}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid> 
-
+        </DataGrid>
+        <DataGrid 
+                  ItemsSource="{Binding Path=DataObj.Receiveitems}"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  RowHeaderWidth="0"
+                  AutoGenerateColumns="False" Margin="0,0,0,0" Grid.Row="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="10*" Header="收到交易" Binding="{Binding colum1}"/>
+                <DataGridTextColumn Width="10*" Header="发送柜员" Binding="{Binding colum2}"/>
+                <DataGridTemplateColumn Width="10*" Header="备注"  IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=colum3}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 
 
