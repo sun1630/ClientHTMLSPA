@@ -93,6 +93,8 @@
     <Content Include="Scenarios\center\CS1015\CS1015_1.html" />
     <Content Include="Scenarios\center\CS1015\CS1015_1.js" />
     <Content Include="Scenarios\center\CS1015\res\zh-cn.js" />
+    <Content Include="Scenarios\center\Majp\A03.html" />
+    <Content Include="Scenarios\center\Majp\A03.js" />
     <Content Include="Scenarios\center\Majp\A02.html" />
     <Content Include="Scenarios\center\Majp\A02.js" />
     <Content Include="Scenarios\center\Majp\A01.html" />
@@ -108,6 +110,7 @@
     <Content Include="Scripts\activities\ConnectServerActivity.js" />
     <Content Include="Scripts\activities\DataMappingActivity.js" />
     <None Include="Scripts\jquery-2.2.3-vsdoc.js" />
+    <Content Include="Scripts\activities\MajpActivity.js" />
     <Content Include="Scripts\activities\ShowScreenActivity.js" />
     <Content Include="Scripts\almond-custom.js" />
     <Content Include="Scripts\durandal\activator.js" />

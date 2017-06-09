@@ -1,42 +1,37 @@
-﻿define(['activities/ShowScreenActivity', 'activities/DataMappingActivity', 'activities/ConnectServerActivity', 'activities/CallSubFlowActivity']
+﻿define(['activities/ShowScreenActivity', 'activities/MajpActivity', 'activities/DataMappingActivity', 'activities/ConnectServerActivity', 'activities/CallSubFlowActivity']
     ,
-    function (showScreen, setDataAct, connectServer,  CallSubFlowActivity) {
+    function (showScreen, majp, setDataAct, connectServer,  CallSubFlowActivity) {
         return {
             $inputs: '*',
             $outputs: '*',
             $global: { sendData: null, showData: null },
             activities: {
-                'showAccount': wfjs.Activity({
+                'Setp1': wfjs.Activity({
                     activity: new showScreen(),
                     $inputs: {
                         Page: '"Scenarios/center/Majp/A01"',
                     },
-                    next: 'showName'
+                    next: 'Setp2'
                 }),
-                'showName': wfjs.Activity({
+                'Setp2': wfjs.Activity({
                     activity: new showScreen(),
                     $inputs: {
                         Page: '"Scenarios/center/Majp/A02"',
                         ShowType: '"normal"',//normal model
                     },
-                    next: 'showResult'
+                    next: 'Setp3'
                 }),
-                'showResult': wfjs.Activity({
+                'Setp3': wfjs.Activity({
+                    activity: new majp(),
+                    $inputs: {
+                        Page: '"Scenarios/center/Majp/A02"'
+                    },
+                    next: 'Setp4'
+                }),
+                'Setp4': wfjs.Activity({
                     activity: new showScreen(),
                     $inputs: {
-                        Page: '"Scenarios/center/CS1012/CS1012_3"',
-                        ShowData: 'this.showData'
-                    },
-                    $outputs: {
-                        Result: 'showData'
-                    },
-                    next: 'Showfourth'
-                }),
-                'Showfourth': wfjs.Activity({
-                    activity: new showScreen(),
-                    $inputs: {
-                        Page: '"Scenarios/center/CS1012/CS1012_4"',
-                        ShowData: 'this.showData'
+                        Page: '"Scenarios/center/Majp/A03"'
                     },
                     next: 'null'
                 })

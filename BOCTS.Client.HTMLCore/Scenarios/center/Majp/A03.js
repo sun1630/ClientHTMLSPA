@@ -12,16 +12,8 @@
             this.dm = cx.dm;
             this.instanceid = cx.instanceId;
             this.tabId = cx.tabId;
-            this.wm.currentViewModel = self;
 
-            this.submit = function (data) {
-                var _para = { 
-                    isFullMask: false,
-                    isContinue: true
-                };
-                console.debug("Click:" + self.instanceid);
-                self.wm.continueFlow(_para);
-            }
+            this.wm.currentViewModel = self;
         }
 
         return m;
