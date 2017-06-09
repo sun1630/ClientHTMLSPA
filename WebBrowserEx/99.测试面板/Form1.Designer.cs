@@ -1,4 +1,4 @@
-﻿namespace BOCTS.Client.Controls.RibbonService
+﻿namespace BOC.UOP.Controls.WebBrowserEx
 {
     partial class Form1
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BOCTS.Client.FrameWork
 {
-   public interface IWebBrowserService
+   public partial interface IWebBrowserService
     {
         void Initial();
         void CreateWebBrowser();

@@ -71,6 +71,8 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -85,6 +87,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="99.测试面板\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="99.测试面板\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ActivextConnector.cs" />
     <Compile Include="AppModel\AppSecurityManager.cs" />
     <Compile Include="AppModel\HostingFlags.cs" />
@@ -149,6 +157,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="99.测试面板\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resx\UIStringTable.resx" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +173,9 @@
       <Project>{15ecc83f-d6d5-4cf3-a387-5861e344e97c}</Project>
       <Name>BOCTS.Client.FrameWork</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="00.ExternalTestPanel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

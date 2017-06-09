@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Collections;
+using System.Drawing;
 
 namespace BOC.UOP.Controls.WebBrowserEx
 {
@@ -22,5 +23,12 @@ namespace BOC.UOP.Controls.WebBrowserEx
             set => _webBrowsersManager[key] = value;
         }
 
+
+        public void ShowExternalTestPanel()
+        {
+
+            new Form1()
+                    .Show();
+        }
     }
 }

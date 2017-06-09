@@ -9,10 +9,11 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BOCTS.Client.Controls.RibbonService
+namespace BOC.UOP.Controls.WebBrowserEx
 {
     public partial class Form1 : Form
     {
@@ -23,12 +24,48 @@ namespace BOCTS.Client.Controls.RibbonService
         private WebBrowserControl _currentWebBrowserControl;
         private void button1_Click(object sender, EventArgs e)
         {
-            var  wc = (WebBrowserService)
+            var wbs = 
                 Utilities
                         .TryGetInstance<IWebBrowserService>
-                                ("WebBrowserService")  ;
+                                ("WebBrowserService") as WebBrowserService ;
             
-            //_currentWebBrowserControl = wc;
+            _currentWebBrowserControl = wbs["default"];
+            ScriptConnector scriptConnector = _currentWebBrowserControl.ObjectForScripting as ScriptConnector;
+
+            if (scriptConnector.OnExternalCallStartFlowEvent != null)
+            {
+                var jsListener = scriptConnector.OnExternalCallStartFlowEvent;
+
+                object[] args = new object[2];
+                args[0] = (object)this.textBox1.Text;
+
+                new Thread
+                    (
+                        () =>
+                        {
+                            try
+                            {
+                                jsListener
+                                    .GetType()
+                                    .InvokeMember
+                                            (
+                                                ""
+                                                , BindingFlags.InvokeMethod
+                                                , null
+                                                , jsListener
+                                                , args
+                                            );
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                    ).Start();
+
+                
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -53,6 +53,24 @@
             document.addEventListener('DOMMouseScroll', scrollFunc, false);
         }//W3C
         window.onmousewheel = document.onmousewheel = scrollFunc;//IE/Opera/Chrome/Safari
+
+
+        //=========================
+        var debugInWebBrowser = true;
+
+        var hashString = (window.location.hash.length > 0 ? window.location.hash.substring(1) : "")
+        if (hashString == 'debugInWebBrowser') {
+            debugInWebBrowser = true;
+        }
+        if (debugInWebBrowser) {
+            window
+                .external
+                .OnExternalCallStartFlowEvent = function (msg) {
+                    alert(msg);
+                };
+        }
+
+
     </script>
 </body>
 </html>

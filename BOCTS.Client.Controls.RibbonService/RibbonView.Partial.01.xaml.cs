@@ -1,4 +1,4 @@
-﻿using BOC.UOP.Controls.WebBrowserEx;
+﻿//using BOC.UOP.Controls.WebBrowserEx;
 using BOCTS.Client.FrameWork;
 using Fluent;
 using Microsoft.Practices.Prism.Regions;
@@ -28,9 +28,9 @@ namespace BOCTS.Client.Controls.RibbonService
         //add by Xiyue Yu for Test Panel
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-
-
-            new Form1().Show();
+           Utilities
+                .TryGetInstance<IWebBrowserService>("WebBrowserService")
+                .ShowExternalTestPanel();
         }
     }
 }

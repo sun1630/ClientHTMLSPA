@@ -56,5 +56,7 @@ namespace BOC.UOP.Controls.WebBrowserEx
                 ._webBrowsersManager["default"] = wc;
                 
         }
+
+
     }
 }
