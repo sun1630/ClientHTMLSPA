@@ -79,6 +79,8 @@
     <Content Include="Scenarios\center\CS1012\CS1012_4.html" />
     <Content Include="Scenarios\center\CS1012\CS1012_4.js" />
     <Content Include="Scenarios\center\CS1012\res\zh-cn.js" />
+    <Content Include="Scenarios\center\CS1015\CS1015_5.html" />
+    <Content Include="Scenarios\center\CS1015\CS1015_5.js" />
     <Content Include="Scenarios\center\CS1015\CS1015_4.html" />
     <Content Include="Scenarios\center\CS1015\CS1015_4.js" />
     <Content Include="Scenarios\center\CS1015\CS1015_3.html" />
@@ -90,6 +92,8 @@
     <Content Include="Scenarios\center\CS1016\16_1.js" />
     <Content Include="Scenarios\center\CS1016\res\zh-cn.js" />
     <Content Include="Scenarios\center\CS9999\CS9999.js" />
+    <Content Include="Scenarios\center\CS9999\CS9999_0.html" />
+    <Content Include="Scenarios\center\CS9999\CS9999_0.js" />
     <Content Include="Scenarios\center\CS9999\CS9999_1.html" />
     <Content Include="Scenarios\center\CS9999\CS9999_1.js" />
     <Content Include="Scenarios\center\CS9999\res\zh-cn.js" />

@@ -20,3 +20,28 @@
                        optionsValue:'code',
                        "></select>
 </p>
+
+
+<h3>省市县联动 事件</h3>
+<p>
+    省：
+    <select data-bind="options: province1.value,
+                       optionsText: 'text',
+                       optionsValue:'code',
+                       value:provinceCode.value,
+                       optionsCaption: '请选择',
+                       event:{change:provinceChange}
+                       "></select>
+</p>
+<p>
+    <span data-bind="text:provinceCode.value"></span>
+</p>
+<p>
+    市：
+    <select data-bind="options: city1.value,
+                       optionsText: 'text',
+                       optionsValue:'code',
+                       optionsCaption: '请选择',
+                       "></select>
+</p>
+
