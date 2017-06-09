@@ -1,0 +1,22 @@
+﻿
+<h3>省市县联动 深度</h3>
+<p>
+    省：
+    <select data-bind="options: province.value,
+                       optionsText: 'text',
+                       value:city.value
+                       "></select>
+</p>
+<p>
+    <span data-bind="text:city.value().code"></span>
+</p>
+<p>
+    <span data-bind="text:city.value().child"></span>
+</p>
+<p>
+    市：
+    <select data-bind="options: city.value().child,
+                       optionsText: 'text',
+                       optionsValue:'code',
+                       "></select>
+</p>

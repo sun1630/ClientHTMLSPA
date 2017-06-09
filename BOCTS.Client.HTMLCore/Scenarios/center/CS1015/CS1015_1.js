@@ -17,7 +17,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                 amount: {
                     value: 1000,
                     metadata: {
-                        needObserve: true,
+                        needObservable: true,
                         needShare: true,
                         inputMask: "YYYY-MM-DD",
                         inputComlplete: {
@@ -35,7 +35,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                 rate: {
                     value: 10,
                     metadata: {
-                        needObserve: true
+                        needObservable: true
                     }
                 },
                 currencys: {
@@ -45,7 +45,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                         { code: 'hkd', value: '港币', mask: 'hkd:####', culty: 'hkd' }
                     ],
                     metadata: {
-                        needObserve: true
+                        needObservable: true
                     }
                 },
                 birthdate2: {
@@ -57,7 +57,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                 '最小票面金额': {
                     value: 100,
                     metadata: {
-                        needObserve: true,
+                        needObservable: true,
 
                         inputComlplete: {
                             uit:100
@@ -70,7 +70,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                 '最小票面币种': {
                     value: 'cny',
                     metadata: {
-                        needObserve: true,
+                        needObservable: true,
                         sourceType: 'par',//par:http://pars.com/fetchpar?,ecis:http://ecis.com/getecis?
                         requestParams: { par1: '最小票面币种', par2: '2' }
                         // http://pars.com/fetchpar?par1=最小票面金额&par2=2
@@ -105,7 +105,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
 //            amount: {
 //                value: 1000,
 //                metadata: {
-//                    needObserve: true,
+//                    needObservable: true,
 //                    needShare: true,
 
 //                    inputMask: "YYYY-MM-DD",
@@ -124,7 +124,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
 //            rate: {
 //                value: 10,
 //                metadata: {
-//                    needObserve: true
+//                    needObservable: true
 //                }
 //            },
 //            currencys: {
@@ -134,7 +134,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
 //                    { code: 'hkd', value: '港币', mask: 'hkd:####' }
 //                ],
 //                metadata: {
-//                    needObserve: true
+//                    needObservable: true
 //                }
 //            },
 

@@ -1,0 +1,14 @@
+﻿
+<h3>最小票面</h3>
+<p>
+    最小票面币种：
+    <select data-bind="options: minParCurrency.value,
+                       optionsText: 'value',
+                       optionsValue:'parValue',
+                       optionsCaption: '请选择',
+                       value:minParAmount.value
+                       "></select>
+</p>
+<p>
+    最小票面金额：<span data-bind="text:minParAmount.value"></span>
+</p>

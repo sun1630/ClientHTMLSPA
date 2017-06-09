@@ -1,8 +1,8 @@
 ﻿define(['durandal/system', 'knockout', 'jsRuntime/dataManager', 'jsRuntime/workflowManager',
     'durandal/app', 'plugins/dialog', 'jsRuntime/resourceManager', 'jsRuntime/utility',
     'jsRuntime/eventAggregator', 'jsRuntime/configManager', 'jsRuntime/styleManager',
-    'jsRuntime/actionManager','udl/share', 'udl/vmProvider'],
-    function (system, ko, dm, wm, app, dialog, rm, utility, evtAggtor, cm, styleManager, am,share, vmp) {
+    'jsRuntime/actionManager', 'udl/share', 'udl/vmProvider'],
+    function (system, ko, dm, wm, app, dialog, rm, utility, evtAggtor, cm, styleManager, am, share, vmp) {
         function log() {
             console.log(arguments);
         };
@@ -373,6 +373,7 @@
                                     rm: rm.instance[wfinstanceId],
                                     wm: wm.instance[wfinstanceId],
                                     dm: dm.instance[wfinstanceId],
+                                    teller: share.teller,
                                     shareTrans: share.trans[wfinstanceId]
                                 };
 

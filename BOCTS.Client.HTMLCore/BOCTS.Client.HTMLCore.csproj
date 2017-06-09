@@ -79,6 +79,10 @@
     <Content Include="Scenarios\center\CS1012\CS1012_4.html" />
     <Content Include="Scenarios\center\CS1012\CS1012_4.js" />
     <Content Include="Scenarios\center\CS1012\res\zh-cn.js" />
+    <Content Include="Scenarios\center\CS1015\CS1015_4.html" />
+    <Content Include="Scenarios\center\CS1015\CS1015_4.js" />
+    <Content Include="Scenarios\center\CS1015\CS1015_3.html" />
+    <Content Include="Scenarios\center\CS1015\CS1015_3.js" />
     <Content Include="Scenarios\center\CS1015\CS1015_2.html" />
     <Content Include="Scenarios\center\CS1015\CS1015_2.js" />
     <Content Include="Scenarios\center\CS1016\CS1016.js" />

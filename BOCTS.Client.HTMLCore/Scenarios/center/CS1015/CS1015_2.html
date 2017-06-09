@@ -1,4 +1,4 @@
-﻿<p>share Trans 数据</p>
+﻿<!--<p>share Trans 数据</p>
 <p>
     amount:  <span data-bind="text:shareTrans.amount.value"></span>
 </p>
@@ -8,4 +8,16 @@
 <p>
     <span data-bind="text:instanceid"></span>
    <button type="button" data-bind="click:cx.wm.jumpto.bind($data,-1,instanceid),text:cx.rm.button.pre">上一步</button>
+</p>-->
+
+<h3>日期多文化</h3>
+<p>
+    当前文化：<span data-bind="text:teller.culty.value"></span>
 </p>
+<p>
+    字段类型：<span data-bind="text:birthdate.inputMask().type"></span>
+</p>
+<p>
+    掩码：<span data-bind="text:birthdate.inputMask().maskValue"></span>
+</p>
+
