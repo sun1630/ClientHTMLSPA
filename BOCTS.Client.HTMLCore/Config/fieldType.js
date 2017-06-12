@@ -14,19 +14,13 @@
                 },
             },
             'usa': {
-                inputMast: 'mm-dd-ylyy',
-                format: function (target) {
-
-                }
+                inputMask: {
+                    type: 'date',
+                    maskValue: 'mm-dd-ylyy'
+                },
             }
 
         },        //mask 99999999
-
-
-
-
-
-
 
         Digit: "",        //mask 正整数
         DigitChar: "",        //mask

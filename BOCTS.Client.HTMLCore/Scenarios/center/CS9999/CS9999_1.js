@@ -59,40 +59,4 @@
         };
 
         return m;
-
-        //var m = function (cx) {
-        //    var self = this;
-        //    this.cx = cx;
-        //    this.rm = rm.global;
-        //    this.am = am.global;
-        //    this.wm = cx.wm;
-        //    this.dm = cx.dm;
-        //    this.instanceid = cx.instanceId;
-        //    this.tabId = cx.tabId;
-
-        //    var model = {
-        //        data: {
-        //            test: {
-        //                value: 100,
-        //                metadata: {
-        //                    needObserve: true,
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //data: {
-        //        rate: {
-        //            value: 100,
-        //            metadata: {
-        //                needObserve: true,
-
-        //                }
-        //        },
-
-
-
-
     });
-//return m;
-//});

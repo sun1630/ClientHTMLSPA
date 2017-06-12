@@ -23,6 +23,11 @@
     //return model;
 
     return {
+        teller: {
+            culture: {
+                value: ko.observable('china')
+            }
+        },
         trans: {}
     }
 

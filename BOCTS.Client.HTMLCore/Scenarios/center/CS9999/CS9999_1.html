@@ -1,3 +1,19 @@
-﻿
-<span data-bind="text:BirthDate"></span>
-<button type="button" data-bind="Alphanumeric:BirthDate">方法测试</button>
+﻿<div class="pure-g box-border">
+
+
+    <div class="pure-u-1-12 box-border">
+        <a data-bind="click:startFlow.bind($data,'CS1012')">测试CS1012</a><p></p>
+        <a data-bind="click:startFlow.bind($data,'CS1014',{ isTab: false})">测试CS1014</a><p></p>
+        <a data-bind="click:startFlow.bind($data,'CS1013')">测试CS1013</a><p></p>
+        <a data-bind="click:removeCSS">removeCSS</a><p></p>
+        <a data-bind="click:addCSS">addCSS</a><p></p>
+        <p>
+            <a data-bind="click:startFlow.bind($data,'CS1015')">测试CS1015</a>
+        </p>
+        <p>
+            <a data-bind="click:startFlow2.bind($data,'CS1016')">测试CS1016</a>
+        </p>
+    </div>
+
+    <p>111111111111111</p>
+</div>

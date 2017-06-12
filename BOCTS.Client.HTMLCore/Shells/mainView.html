@@ -1,29 +1,35 @@
-﻿
-<a data-bind="click:startFlow.bind($data,'CS1012')">测试CS1012</a><p></p>
-<a data-bind="click:startFlow.bind($data,'CS1014',{ isTab: false})">测试CS1014</a><p></p>
-<a data-bind="click:startFlow.bind($data,'CS1013')">测试CS1013</a><p></p>
-<a data-bind="click:removeCSS">removeCSS</a><p></p>
-<a data-bind="click:addCSS">addCSS</a><p></p>
-<p>
-    <a data-bind="click:startFlow.bind($data,'CS1015')">测试CS1015</a>
-</p>
-<p>
-    <a data-bind="click:startFlow2.bind($data,'CS1016')">测试CS1016</a>
-</p>
-<a data-bind="click:startFlow.bind($data,'Majp')">测试Majp</a><p></p>
+﻿<div class="pure-g box-border">
+
+
+    <div class="pure-u-1-12 box-border">
+        <a data-bind="click:startFlow.bind($data,'CS1012')">测试CS1012</a><p></p>
+        <a data-bind="click:startFlow.bind($data,'CS1014',{ isTab: false})">测试CS1014</a><p></p>
+        <a data-bind="click:startFlow.bind($data,'CS1013')">测试CS1013</a><p></p>
+        <a data-bind="click:removeCSS">removeCSS</a><p></p>
+        <a data-bind="click:addCSS">addCSS</a><p></p>
+        <p>
+            <a data-bind="click:startFlow.bind($data,'CS1015')">测试CS1015</a>
+        </p>
+        <p>
+            <a data-bind="click:startFlow2.bind($data,'CS1016')">测试CS1016</a>
+        </p>
+        <p>
+            <a data-bind="click:startFlow.bind($data,'CS9999')">测试CS9999</a>
+        </p>
+    </div>
 
 
 
-<div class="pure-form pure-g box-border">
-    <ul class="tabs pure-u-1" >
-        <!--ko foreach:tabArray-->
-        <li data-bind="template:{name:'mainArrTemplate',data:$data,afterRender:function(em){$root.afterEvent(em,$data)}}">
+    <div class="pure-u-11-12 box-border">
+        <ul class="tabs pure-u-1">
+            <!--ko foreach:tabArray-->
+            <li data-bind="template:{name:'mainArrTemplate',data:$data,afterRender:function(em){$root.afterEvent(em,$data)}}">
 
-        </li>
-        <!--/ko-->
-    </ul>
+            </li>
+            <!--/ko-->
+        </ul>
+    </div>
 </div>
-
 
 <script id="mainArrTemplate" type="text/html">
     <input class="tabsInput" type="radio" name="tabs1" data-bind="attr:{'id':'tab'+$index()}" checked />

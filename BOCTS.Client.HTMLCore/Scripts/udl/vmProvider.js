@@ -87,7 +87,7 @@
                             }
                             ext.logChange = { root: local, path: field };
 
-                            if (fieldValue.metadata.needObserve) {
+                            if (fieldValue.metadata.needObservable) {
                                 viewModel[field] = {
                                     value: fieldValue.value instanceof Array ? ko.observableArray(fieldValue.value) : ko.observable(fieldValue.value).extend(ext),
                                 };

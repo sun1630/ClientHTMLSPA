@@ -13,9 +13,16 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                 dm: cx.dm,
                 instanceid: cx.instanceId,
                 tabId: cx.tabId,
+                teller: cx.teller,
                 shareTrans: cx.shareTrans,
 
-
+                birthdate: {
+                    value: '2017-12-12',
+                    metadata: {
+                        needObservable: true,
+                        dataType: '' 
+                    },
+                }
             },
             methods: {
                 btnprev: function () {
@@ -23,7 +30,7 @@ define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionMa
                 }
             }
 
-        });
+        }, cx);
         return model;
     }
     return m;
