@@ -71,8 +71,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\DataGridDoubleClickCommand.cs" />
-    <Compile Include="Command\DelegateCommand.cs" />
     <Compile Include="QueueWindow_Model.cs" />
     <Page Include="Res\Dictionary1B.xaml">
       <Generator>MSBuild:Compile</Generator>
