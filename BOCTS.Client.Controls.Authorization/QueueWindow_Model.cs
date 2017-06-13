@@ -56,13 +56,12 @@ namespace BOCTS.Client.Controls.Authorization
             this.DataObj = dataobj;
         }
 
-        private void DataGridDoubleClickHandler(object sender, EventArgs e)
+        private void DataGridDoubleClickHandler(object sender, DelegateCommandEventArgs e)
         {
-            if ((sender as DataGrid).SelectedItem == null)
+            DataGrid dg = e.Parameter as DataGrid;
+            if (dg.SelectedItem == null)
                 return;
-            DataRowView dr = (sender as DataGrid).SelectedItem as DataRowView;
-            DataRow dr1 = dr.Row;
-            //txtName.Text = Convert.ToString(dr1.ItemArray[1]);
+            Senditem dr = dg.SelectedItem as Senditem; 
 
         }
 
