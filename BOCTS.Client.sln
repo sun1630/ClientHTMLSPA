@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages", "Packages\Packag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOCTS.Client.Controls.Authorization", "BOCTS.Client.Controls.Authorization\BOCTS.Client.Controls.Authorization.csproj", "{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOCTS.Client.Authorization", "BOCTS.Client.Authorization\BOCTS.Client.Authorization.csproj", "{ACE7E08D-8B87-44B8-98FF-F01AF6694F04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE7E08D-8B87-44B8-98FF-F01AF6694F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE7E08D-8B87-44B8-98FF-F01AF6694F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE7E08D-8B87-44B8-98FF-F01AF6694F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE7E08D-8B87-44B8-98FF-F01AF6694F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,5 +84,6 @@ Global
 		{D17EED1A-B485-4DBB-9C32-B199033A2F02} = {13F54226-C9E6-4C3B-8C3F-8B4693AF29F0}
 		{239A2F0D-610D-4445-B4BB-8B15A10D33F2} = {2C6F294F-EC47-4C38-91ED-217AA9905679}
 		{9F9ECB32-5D02-41D4-81EE-168E1D78C2FE} = {13F54226-C9E6-4C3B-8C3F-8B4693AF29F0}
+		{ACE7E08D-8B87-44B8-98FF-F01AF6694F04} = {2C6F294F-EC47-4C38-91ED-217AA9905679}
 	EndGlobalSection
 EndGlobal

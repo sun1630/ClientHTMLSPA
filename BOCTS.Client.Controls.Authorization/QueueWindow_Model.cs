@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Prism.Commands;
+﻿using BOCTS.Client.Authorization;
+using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,7 @@ namespace BOCTS.Client.Controls.Authorization
 
         private void ChangeStyleCommandHandler(object sender, EventArgs e)
         {
+            WebAPIHelper.GetDataForAuthorization();
             _window.Resources.MergedDictionaries.Clear();
             _window.Resources.MergedDictionaries.Add(
                 new ResourceDictionary()
