@@ -33,7 +33,7 @@ namespace BOCTS.Client.Controls.Authorization
             this.Resources.MergedDictionaries.Add(
                 new ResourceDictionary()
                 {
-                    Source = new Uri(@"pack://application:,,,/BOCTS.Client.Controls.Authorization;component/Dictionary1A.xaml")
+                    Source = new Uri(@"pack://application:,,,/BOCTS.Client.Controls.Authorization;component/Res/Dictionary1A.xaml")
                 }
                 ); 
 
@@ -53,6 +53,7 @@ namespace BOCTS.Client.Controls.Authorization
         {
             this.DataContext = new QueueWindow_Model(this); 
         }
+         
 
 
         //private void Button_Click(object sender, RoutedEventArgs e)

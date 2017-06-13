@@ -50,6 +50,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridDoubleClickCommand.cs" />
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="WebAPIHelper.cs" />
     <Page Include="UserControl1.xaml">
       <Generator>MSBuild:Compile</Generator>

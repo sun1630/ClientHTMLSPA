@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BOCTS.Client.Controls.Authorization"
+             xmlns:boctsBehaviors="clr-namespace:BOCTS.Client.Controls.Authorization;assembly=BOCTS.Client.Authorization"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded" >
 
@@ -20,7 +21,9 @@
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                   CanUserAddRows="False" VerticalContentAlignment="Top"
                   RowHeaderWidth="0"
-                  AutoGenerateColumns="False" Margin="0,0,0,0" Grid.Row="1" >
+                  AutoGenerateColumns="False" Margin="0,0,0,0" Grid.Row="1"
+            boctsBehaviors:BOCClientCommand.DataGridDoubleClickCommand="{Binding DataGridDoubleClick}"
+            >
             <DataGrid.Columns>
                 <DataGridTextColumn Width="10*" Header="已发送交易" Binding="{Binding colum1}"/>
                 <DataGridTextColumn Width="10*" Header="当前状态" Binding="{Binding colum2}"/>

@@ -3,10 +3,12 @@ using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace BOCTS.Client.Controls.Authorization
 {
@@ -15,16 +17,16 @@ namespace BOCTS.Client.Controls.Authorization
         private QueueWindow _window = null;
         public Rootobject DataObj { get; set; }
 
-        public DelegateCommand RefreshCommand{ get; set; }
-
-
+        public DelegateCommand RefreshCommand{ get; set; } 
         public DelegateCommand ChangeStyleCommand{ get;set; }
-        
+        public DelegateCommand DataGridDoubleClick { get; set; }
         public QueueWindow_Model(QueueWindow p_window)
         {
             this._window = p_window;
             this.RefreshCommand = new DelegateCommand(this.RefreshCommandHandler);
             this.ChangeStyleCommand = new DelegateCommand(this.ChangeStyleCommandHandler);
+            this.DataGridDoubleClick = new DelegateCommand(this.DataGridDoubleClickHandler);
+            
             LoadData(@"D:\Work\ClientHTMLSPA\BOCTS.Client.Controls.Authorization\json_template.json");
         }
 
@@ -35,7 +37,7 @@ namespace BOCTS.Client.Controls.Authorization
             _window.Resources.MergedDictionaries.Add(
                 new ResourceDictionary()
                 {
-                    Source = new Uri(@"pack://application:,,,/BOCTS.Client.Controls.Authorization;component/Dictionary1B.xaml")
+                    Source = new Uri(@"pack://application:,,,/BOCTS.Client.Controls.Authorization;component/Res/Dictionary1B.xaml")
                 }
                 );
         }
@@ -54,7 +56,15 @@ namespace BOCTS.Client.Controls.Authorization
             this.DataObj = dataobj;
         }
 
+        private void DataGridDoubleClickHandler(object sender, EventArgs e)
+        {
+            if ((sender as DataGrid).SelectedItem == null)
+                return;
+            DataRowView dr = (sender as DataGrid).SelectedItem as DataRowView;
+            DataRow dr1 = dr.Row;
+            //txtName.Text = Convert.ToString(dr1.ItemArray[1]);
 
+        }
 
 
         #region Interface INotifyPropertyChanged
