@@ -23,7 +23,7 @@ namespace BOCTS.Client
             AddCatalogs(dockerManagerPath);
             string webBrowserEx = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, @"BOC.UOP.Controls.WebBrowserEx.dll");
             AddCatalogs(webBrowserEx);
-
+            AddCatalogs(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, @"BOCTS.Client.Authorization.DLL")); 
             AddCatalogs(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, @"BOCTS.Client.Controls.Authorization.DLL"));
         }
 

@@ -3,6 +3,8 @@ using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,9 @@ namespace BOCTS.Client.Controls.Authorization
 {
     public class QueueWindow_Model:INotifyPropertyChanged
     {
+        [ImportMany(typeof(IAuthorizationExecInterface))]
+        IEnumerable<IAuthorizationExecInterface> operations { get; set; }
+
         private QueueWindow _window = null;
         public Rootobject DataObj { get; set; }
 
@@ -26,7 +31,18 @@ namespace BOCTS.Client.Controls.Authorization
             this.RefreshCommand = new DelegateCommand(this.RefreshCommandHandler);
             this.ChangeStyleCommand = new DelegateCommand(this.ChangeStyleCommandHandler);
             this.DataGridDoubleClick = new DelegateCommand(this.DataGridDoubleClickHandler);
-            
+
+
+
+            var catalog = new AggregateCatalog();
+
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(QueueWindow_Model).Assembly));
+            //catalog.Catalogs.Add(new DirectoryCatalog("Addin"));   //遍历运行目录下的Addin文件夹，查找所需的插件。
+            var _container = new CompositionContainer(catalog); 
+            _container.ComposeParts(this); 
+
+
+
             LoadData(@"D:\Work\ClientHTMLSPA\BOCTS.Client.Controls.Authorization\json_template.json");
         }
 
@@ -58,11 +74,16 @@ namespace BOCTS.Client.Controls.Authorization
 
         private void DataGridDoubleClickHandler(object sender, DelegateCommandEventArgs e)
         {
+            var x = operations;
             DataGrid dg = e.Parameter as DataGrid;
             if (dg.SelectedItem == null)
                 return;
-            Senditem dr = dg.SelectedItem as Senditem; 
-
+            Senditem dr = dg.SelectedItem as Senditem;
+            foreach (IAuthorizationExecInterface item in operations)
+            {
+                //var instance = item.Value;
+                item.Exec(dr);
+            }
         }
 
 
