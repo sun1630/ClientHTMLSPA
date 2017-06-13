@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,13 +27,33 @@ namespace BOCTS.Client.Controls.Authorization
         {
             
             InitializeComponent();
-            
+            //Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+ 
+
+            this.Resources.MergedDictionaries.Add(
+                new ResourceDictionary()
+                {
+                    Source = new Uri(@"pack://application:,,,/BOCTS.Client.Controls.Authorization;component/Dictionary1A.xaml")
+                }
+                ); 
+
+     ////           < UserControl.Resources >
+     ////   < ResourceDictionary >
+     ////       < ResourceDictionary.MergedDictionaries >
+     ////           < ResourceDictionary Source = "Dictionary1.xaml" ></ ResourceDictionary >
+ 
+     ////        </ ResourceDictionary.MergedDictionaries >
+ 
+     ////    </ ResourceDictionary >
+ 
+     ////</ UserControl.Resources >
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = new QueueWindow_Model(this); 
         }
+
 
         //private void Button_Click(object sender, RoutedEventArgs e)
         //{

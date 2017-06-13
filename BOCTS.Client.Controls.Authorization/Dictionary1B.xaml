@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:BOCTS.Client.Controls.Authorization">
 
     <Style TargetType="Grid" x:Key="grid_style">
-        <!--<Setter Property="Background" Value="AliceBlue"></Setter>-->
+        <Setter Property="Background" Value="Red"></Setter>
     </Style>
 
     <Style TargetType="ListView" x:Key="listview_style">

@@ -6,13 +6,7 @@
              xmlns:local="clr-namespace:BOCTS.Client.Controls.Authorization"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded" >
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
+
     <Grid Style="{DynamicResource grid_style}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -57,6 +51,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content='我换' HorizontalAlignment="Left" Margin="85,5,0,0" VerticalAlignment="Top" Height="20" Width="75" Grid.Row="0"
+            Command="{Binding ChangeStyleCommand}"/>
     </Grid>
 
 

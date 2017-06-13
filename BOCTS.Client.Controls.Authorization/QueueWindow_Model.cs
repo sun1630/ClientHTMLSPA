@@ -14,20 +14,30 @@ namespace BOCTS.Client.Controls.Authorization
         private QueueWindow _window = null;
         public Rootobject DataObj { get; set; }
 
-        public DelegateCommand RefreshCommand
-        {
-            get { return this.refreshCommand; }
-        }
-        private DelegateCommand refreshCommand;
+        public DelegateCommand RefreshCommand{ get; set; }
 
 
-
+        public DelegateCommand ChangeStyleCommand{ get;set; }
+        
         public QueueWindow_Model(QueueWindow p_window)
         {
             this._window = p_window;
-            this.refreshCommand = new DelegateCommand(this.RefreshCommandHandler);
+            this.RefreshCommand = new DelegateCommand(this.RefreshCommandHandler);
+            this.ChangeStyleCommand = new DelegateCommand(this.ChangeStyleCommandHandler);
             LoadData(@"D:\Work\ClientHTMLSPA\BOCTS.Client.Controls.Authorization\json_template.json");
         }
+
+        private void ChangeStyleCommandHandler(object sender, EventArgs e)
+        {
+            _window.Resources.MergedDictionaries.Clear();
+            _window.Resources.MergedDictionaries.Add(
+                new ResourceDictionary()
+                {
+                    Source = new Uri(@"pack://application:,,,/BOCTS.Client.Controls.Authorization;component/Dictionary1B.xaml")
+                }
+                );
+        }
+        
         private void RefreshCommandHandler(object sender, EventArgs e)
         {
             LoadData(@"D:\Work\ClientHTMLSPA\BOCTS.Client.Controls.Authorization\json_template -refresh.json");

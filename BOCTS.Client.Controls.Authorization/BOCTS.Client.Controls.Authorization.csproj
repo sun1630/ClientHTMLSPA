@@ -73,7 +73,11 @@
   <ItemGroup>
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="QueueWindow_Model.cs" />
-    <Page Include="Dictionary1.xaml">
+    <Page Include="Dictionary1B.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dictionary1A.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
