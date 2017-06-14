@@ -173,7 +173,10 @@
     <Content Include="Scripts\udl\share.js" />
     <Content Include="Scripts\udl\Temp.js" />
     <Content Include="Scripts\udl\vmProvider.js" />
+    <Content Include="Scripts\widgets\autocomplete\autocomplete.js" />
+    <Content Include="Scripts\widgets\autocomplete\jquery.autocomplete.js" />
     <Content Include="Scripts\widgets\maskInput.js" />
+    <Content Include="Scripts\widgets\jquery.ostree.js" />
     <Content Include="Scripts\widgets\popupSelect.js" />
     <Content Include="Scripts\widgets\tableView\pageNav.html" />
     <Content Include="Scripts\widgets\tableView\tableView.js" />
