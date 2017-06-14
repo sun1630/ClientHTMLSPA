@@ -28,8 +28,8 @@ namespace BOCTS.Client.Controls.Authorization
             
             InitializeComponent();
             //Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
- 
 
+            this.Resources.MergedDictionaries.Clear();
             this.Resources.MergedDictionaries.Add(
                 new ResourceDictionary()
                 {

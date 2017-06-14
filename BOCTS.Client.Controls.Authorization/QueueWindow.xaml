@@ -7,7 +7,15 @@
              xmlns:boctsBehaviors="clr-namespace:BOCTS.Client.Controls.Authorization;assembly=BOCTS.Client.Authorization"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded" >
-
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Res/Dictionary1A.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    
     <Grid Style="{DynamicResource grid_style}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
