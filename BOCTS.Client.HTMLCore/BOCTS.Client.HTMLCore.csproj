@@ -44,8 +44,10 @@
     <Content Include="Res\center\zh-cn\table.js" />
     <Content Include="Res\center\zh-cn\validation.js" />
     <Content Include="Scenarios\center\CS1010\CS1010.js" />
+    <Content Include="Scenarios\center\CS1010\CS1010_2.js" />
     <Content Include="Scenarios\center\CS1010\CS1010_1.html" />
     <Content Include="Scenarios\center\CS1010\CS1010_1.js" />
+    <Content Include="Scenarios\center\CS1010\CS1010_2.html" />
     <Content Include="Scenarios\center\CS1010\res\zh-cn.js" />
     <Content Include="Scenarios\center\CS1014\CS1014.js" />
     <Content Include="Scenarios\center\CS1014\CS1012_1.html" />

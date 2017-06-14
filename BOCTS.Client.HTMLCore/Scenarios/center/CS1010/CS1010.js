@@ -15,13 +15,13 @@
                         //DialogMessage: '"$rm.global.message.timeOutTips()"',  //string型 设置页面超时后对话框显示信息
                         //ForPadMessage: '"$rm.global.message.mainViewTimeOut()"',  //string型 设置对话框超时后发Pad信息
                     },
-                    next: 'null'
+                    next: 'showtree'
                 }),
-                'CallSubFlowActivity1': wfjs.Activity({
-                    activity: new CallSubFlowActivity(),
-                    $inputs: { SubChartName: '"CS1010/CS1010-11"' },
-                    $outputs: { '*': '*' },
-                    next: 'showName'
+                'showtree': wfjs.Activity({
+                    activity: new showScreen(),
+                    $inputs: {
+                        Page: '"Scenarios/center/CS1010/CS1010_2"'
+                    }
                 })
          
             }
