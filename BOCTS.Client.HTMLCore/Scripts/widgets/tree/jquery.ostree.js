@@ -1,12 +1,13 @@
-﻿+function($) {
-    var OSTree = function(element, option) {
+﻿+function ($) {
+    var OSTree = function (element, option) {
         this.opt = option;
         this.element = $(element);
 
         this.opt.valueField = this.opt.valueField || "id";
         this.opt.textField = this.opt.textField || "name";
-        this.opt.IsIndented = !this.opt.parentField; //  是否是层级深入的数据格式
-        
+        this.opt.parentField = this.opt.parentField || "parentId";
+        this.opt.IsIndented = !!this.opt.childrenField;
+
         this.opt.methods = this.opt.methods || {};
         this.opt.methods.getDataFunc = this.convertToFunc(this.opt.methods.getDataFunc);
         this.opt.methods.chosen = this.convertToFunc(this.opt.methods.chosen);
@@ -18,9 +19,9 @@
         }
     }
 
-
     //  数据格式：[{id:1,name:"ceshi", parentId:0 , children:[{..}] }]
-    //  支持两种形式(parentField设置是否为空来判断)
+
+    //  支持两种形式(childrenField设置是否为空来判断是否是分级结构)
     //        1. 数据格式同级，通过 parentId（可定义） 关联
     //        2. 数据已经分级，挂载在 children（可定义） 下
 
@@ -34,7 +35,7 @@
     //    li 下有一个文本<span>节点, 展示内容部分
     //    li 下有一个i节点，控制 展开，收起 ，数据的异步加载。点击事件已终止冒泡
     //  如果是异步加载数据，加载后 li 添加 has-loaded="y" 属性防止二次加载
-    
+
     //  控件加载生命流程：
     //  getDataFunc - 外部绑定数据加载方法，调用方传入参数loadData方法，方便异步调用数据后loadData(data)即可
     //     => renderLeafs($parentLi，节点数据列表)  - 加载页容器
@@ -46,20 +47,21 @@
         render: function ($control) {
 
             var os = this;
+
             var dataItem = $control.data("tree-item-data");
-           
-            os.opt.methods.getDataFunc(dataItem, function(data) {
+
+            os.opt.methods.getDataFunc(dataItem, function (data) {
                 os.renderLeafs($control, data);
             });
         },
 
-        renderLeafs: function($leafContain, data) {
+        renderLeafs: function ($leafContain, data) {
 
             var os = this;
             var dataItem = $leafContain.data("tree-item-data");
 
             // 获取叶数据 
-            var leafItems = [],newData=[];
+            var leafItems = [], newData = [];
             if (os.opt.IsIndented || !dataItem) {
                 newData = leafItems = data || [];
             } else {
@@ -83,18 +85,20 @@
             }
 
             var $ul = $("<ul></ul>");
+   
             if (!os.opt.isSpreaded) $ul.hide();
-     
+            $leafContain.append($ul);
+
             // 渲染节点
             for (var j = 0; j < leafItems.length; j++) {
 
                 var subDataItem = leafItems[j];
-                if (subDataItem.hasOnTree) {
+                if (subDataItem.hadOnTree) {
                     continue;
                 }
-                subDataItem.hasOnTree = true;//  避免重复渲染
+                subDataItem.hadOnTree = true;//  避免重复渲染
 
-                var $subLeaf = os.renderLeafDetail($ul, subDataItem );
+                var $subLeaf = os.renderLeafDetail($ul, subDataItem);
 
                 if (os.opt.isLoadAll) {
 
@@ -103,19 +107,19 @@
                 }
             }
 
-            $leafContain.append($ul);
+       
             $leafContain.attr("has-loaded", "y");
             os.opt.methods.dataBound(leafItems, $ul); //  数据完成之后执行事件
         },
-        
-        renderLeafDetail: function ($ul,dataItem) {
+
+        renderLeafDetail: function ($ul, dataItem) {
             var os = this;
 
-            var  key = dataItem[os.opt.valueField];
-            var  value = dataItem[os.opt.textField];
+            var key = dataItem[os.opt.valueField];
+            var value = dataItem[os.opt.textField];
 
             // 设置叶元和数据，并绑定点击事件
-            var $leaf = $("<li class='tree-leaf'>" +
+            var $leaf = $("<li class='tree-leaf' tree-key='" + key + "'>" +
                 "<div class='leaf-body'>" +
                 "<i class='tree-icon plus'></i>" +
                 "<span class='leaf-text'>" + value + "</span>" +
@@ -128,23 +132,23 @@
 
                 os.opt.methods.chosen(cuDataItem, $leafNode);
             });
-            
+
             // 设置icon的默认状态和相关事件
-            if (os.opt.isLoadAll) 
+            if (os.opt.isLoadAll)
                 os.switchLeafIcon($leaf);
 
             $leaf.find("i").off("click").on("click", function (e) {
 
-                    var $leaf = $(this).closest("li");
-                    var hasLoaded = $leaf.attr("has-loaded") == "y";
+                var $leaf = $(this).closest("li");
+                var hasLoaded = $leaf.attr("has-loaded") == "y";
 
-                    if (!os.opt.isLoadAll && !hasLoaded) {
-                        os.render($leaf);
-                    }
+                if (!os.opt.isLoadAll && !hasLoaded) {
+                    os.render($leaf);
+                }
 
-                    os.switchLeafIcon($leaf);
-                    e.stopPropagation();
-                });
+                os.switchLeafIcon($leaf);
+                e.stopPropagation();
+            });
 
             $ul.append($leaf);
             os.opt.methods.dataBounding(dataItem, $leaf);
@@ -170,14 +174,14 @@
         },
 
         // 字符串转化为方法
-        convertToFunc: function(strFunc) {
+        convertToFunc: function (strFunc) {
             var func = null;
             if (!!strFunc
                 && (typeof (strFunc) == "function"
                     || typeof (func = eval(strFunc)) == "function")) {
                 return func || strFunc;
             }
-            return function() {};
+            return function () { };
         }
     };
 
@@ -189,12 +193,12 @@
             parentField: "",
             childrenField: "",
 
-            isLoadAll: false,   //  是否是加载全部数据，否则子节点通过异步方式加载
+            isLoadAll: true,   //  是否是加载全部数据，否则子节点通过异步方式加载
             isSpreaded: true,   //  是否是展开状态
 
             methods: {
                 //  获取数据源方法
-                getDataFunc: function(nodeKey, loadDataFunc) {},
+                getDataFunc: function (nodeKey, loadDataFunc) { },
                 //  选中事件
                 chosen: function (dataItem, element) { },
                 //  每一个层级执行完成之后事件
@@ -202,20 +206,20 @@
                 //  element 当前层级的ul对象
                 dataBound: function (data, element) { },
                 //  绑定每个对象时触发
-                dataBounding: function(dateItem,leaf) {}
+                dataBounding: function (dateItem, leaf) { }
             }
         };
     }
 
     var old = $.fn.ostree;
 
-    $.fn.ostree = function(option) {
+    $.fn.ostree = function (option) {
 
         var args = Array.apply(null, arguments);
         args.shift();
         var internalReturn;
 
-        this.each(function() {
+        this.each(function () {
 
             var $this = $(this);
             var cacheData = $this.data("os.tree");
@@ -240,7 +244,7 @@
     $.fn.ostree.constructor = OSTree;
 
     // 树冲突处理
-    $.fn.ostree.noConflict = function() {
+    $.fn.ostree.noConflict = function () {
         $.fn.ostree = old;
         return this;
     };

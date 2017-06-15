@@ -14,7 +14,8 @@
                         dm: cx.dm,
                         instanceid: cx.instanceId,
                         tabId: cx.tabId,
-                        autoval: ko.observable("")
+                        autoval: ko.observable(""),
+                        autoSource: ko.observableArray(["abb", "abc", "abd"])
                     },
                     methods: {
                         autochosen: function(d, event) {
@@ -25,11 +26,16 @@
                                 console.log("ko值 " + val);
                                 console.log("文本框值 " + $(event.target).val());
 
+
                             }
+
+
                         },
+
+
+                
                         activate: function() {
 
-                      
 
                         },
                         compositionComplete: function() {

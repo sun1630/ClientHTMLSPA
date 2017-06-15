@@ -1,3 +1,40 @@
-﻿<div>
-   树形测试页
+﻿<style>
+    .tree-icon {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+
+        .tree-icon.minus {
+            background-color: yellowgreen;
+        }
+
+        .tree-icon.plus {
+            background-color: darkgreen;
+        }
+
+</style>
+
+<div>
+    <div>
+        树形测试页
+    </div> 
+    <div>
+        <input type="button" data-bind="event:{click:addTreeLeaf}" value="塞个数据试试"/>
+    </div>
+    
+</div>
+
+<div>
+    <div data-bind="tree:treeSource,treeVal:treeVal" >
+
+    </div>
+</div>
+
+
+<div>
+   当前选择项：
+    <span data-bind="text:treeVal().name">
+        
+    </span>
 </div>

@@ -1,6 +1,6 @@
 ﻿define(['jsRuntime/parManager', 'jsRuntime/resourceManager', 'jsRuntime/actionManager',
     'widgets/popupSelect', 'widgets/maskInput', 'jsRuntime/workflowManager',
-     'jsRuntime/utility', 'udl/vmProvider', 'Config/fieldType'
+     'jsRuntime/utility', 'udl/vmProvider', 'Config/fieldType', "widgets/tree/tree"
 ], function (pm, rm, am, popupSelect, maskInputs, wm, utility, vmp, cfg) {
     var m = function (cx) {
         var model = new vmp({
@@ -12,31 +12,22 @@
                 dm: cx.dm,
                 instanceid: cx.instanceId,
                 tabId: cx.tabId,
-                //amount: {
-                //    value: 1000,
-                //    metadata: {
-                //        needObserve: true,
-                //        needShare: true,
-                //        inputMask: "YYYY-MM-DD",
-                //        inputComlplete: {
-                //            required: { params: true, message: "必填" }
-                //            //max: { params: 5, message: '最大值为5' },
-                //            //pattern: { params: '^[0-9]+\.{0,1}[0-9]{0,3}$', message: 'guifan' }
-                //            //readonly: true,
-                //        },
-                //        format: function (target, value) {
-                //            var newValue = parseFloat(target.rate.value()) * parseFloat(value);
-                //            return newValue;
-                //        }
-                //    }
-                //}
+                treeSource: ko.observableArray([
+                    { id: 1, name: "ceshi1", parentId: 0 },
+                    { id: 2, name: "ceshi2", parentId: 1 },
+                    { id: 3, name: "ceshi3", parentId: 0 },
+                    { id: 4, name: "ceshi4", parentId: 2 }
+                ]),
+                treeVal: ko.observable({ name: "无" })
             },
             methods: {
                 //activate: function () {
                 //    alert();
                 //},
+                addTreeLeaf: function(d, e) {
+                    d.treeSource.push( { id:10, name: "ceshimmmmm", parentId: 2 });
+                },
                 compositionComplete: function () {
-                    alert("加载树形控件页成功！");
                 }
             }
         }, cx);

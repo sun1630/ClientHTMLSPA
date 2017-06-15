@@ -70,7 +70,8 @@
 
 <div>
     <div>
-        <input type="text" id="auto_txt" data-bind="autocomplete:autoval,event:{keyup:autochosen}" /><span data-bind="text: autoval"></span>
+        <input type="text" id="auto_txt" 
+               data-bind="autocomplete:autoSource, autoVal:autoval ,event:{keyup:autochosen}" /><span data-bind="text: autoval"></span>
     </div>
 </div>
 
