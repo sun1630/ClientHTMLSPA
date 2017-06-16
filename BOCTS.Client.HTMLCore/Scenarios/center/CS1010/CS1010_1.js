@@ -15,7 +15,12 @@
                         instanceid: cx.instanceId,
                         tabId: cx.tabId,
                         autoval: ko.observable(""),
-                        autoSource: ko.observableArray(["abb", "abc", "abd"])
+                        //autoSource: ko.observableArray(["abb", "abc", "abd"])
+                        autoSource: ko.observableArray([
+                            { value: 1, title: "test1" },
+                            { value: 2, title: "test2" },
+                            { value: 3, title: "test3" }
+                        ])
                     },
                     methods: {
                         autochosen: function(d, event) {
@@ -23,9 +28,9 @@
                             if (event.keyCode == 13) {
                                 var val = d.autoval();
 
-                                console.log("ko值 " + val);
+                                console.log("ko值 ");
+                                console.log(val);
                                 console.log("文本框值 " + $(event.target).val());
-
 
                             }
 
